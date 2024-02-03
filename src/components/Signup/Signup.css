@@ -1,0 +1,65 @@
+.Signup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Signup h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .Signup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Signup input[type="email"],
+  .Signup input[type="password"],
+  .Signup input[type="text"],
+  .Signup input[type="number"],
+  .Signup select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .Signup input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Signup input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .Signup p {
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .Signup a {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .Signup a:hover {
+    text-decoration: underline;
+  }
+  
