@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
+//const bcrypt = require('bcrypt');
 
 function Signup() {
     const path = useNavigate();
@@ -17,7 +18,9 @@ function Signup() {
 
     async function submit(e) {
         e.preventDefault();
-    
+        // const saltRounds = 10;
+        // const hashedPassword = await bcrypt.hash(password, saltRounds);
+
         const userData = {
             firstName,
             lastName,
@@ -30,14 +33,16 @@ function Signup() {
         };
     
         try {
+            console.log("data sent to db ", userData);
             const response = await axios.post("/signup", userData);
     
             if (response.data === "exist") {
                 console.log("User exists");
-                // Display user exists message on the UI or handle accordingly
+                
             } else if (response.data === "notexists") {
+                  // Redirect to login page or display success message
                 path("/login");
-                // Redirect to login page or display success message
+              
             }
         } catch (error) {
             console.error("Error:", error);
