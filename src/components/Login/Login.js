@@ -1,13 +1,10 @@
 import React,{useEffect,useState} from "react";
 import {useNavigate,Link} from "react-router-dom";
 import axios from "axios";
-
 import "./Login.css";
-
 
 const Login = () =>{
     const path = useNavigate();
-
 
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
@@ -25,24 +22,20 @@ const Login = () =>{
                 if(response.data === 'exists'){
                     path("/login")
                     console.log("User exists");
+                }else if (response.data === "incorrectPassword"){
+                    console.log("Incorrect Password");
+
                 }else if (response.data === "notexists") {
                     // Redirect to login page or display success message
                   path("/homepage");
-                
-              }
+                }
 
             }catch (error) {
                 console.error("Error:", error);
                 alert("Something went wrong. Please try again.");
             }
-
-
-
-
-
         }
 
-    
     return(
         <div className="Login">
             <h1>Login</h1>
@@ -60,10 +53,6 @@ const Login = () =>{
             <br/>
             
             <Link to="/signup">Register Here</Link>
-
-
-
-
         </div>
     )
 }
