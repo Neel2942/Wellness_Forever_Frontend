@@ -62,4 +62,10 @@
   .Signup a:hover {
     text-decoration: underline;
   }
+
+  .errorMsg{
+    color: red;
+    margin-top: -15px;
+    font-size: 1rem;
+  }
   
