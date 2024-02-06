@@ -77,7 +77,7 @@ function Signup() {
                 phoneNumber,
                 age,
                 userType,
-                specialization: userType === 'doctor' ? specialization : 'patient',
+                specialization: userType === 'doctor' ? specialization : '',
             };
         
             try {
