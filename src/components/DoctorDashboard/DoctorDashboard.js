@@ -8,7 +8,7 @@ function DoctorDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/getDoctorDashboard');
+        const response = await fetch('/doctorDashboard');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
