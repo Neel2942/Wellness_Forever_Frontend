@@ -1,0 +1,17 @@
+.custom-table{
+    border-collapse: collapse;
+    width: 100%;
+    max-height: 400px; 
+    overflow-y: auto;
+    background-color: #D9D9D9;
+}
+.custom-rows{
+    background-color: #C3C3C3;
+}
+.custom-column{
+    padding: 10px;
+}
+.custom-data{
+    padding: 10px;
+}
+

@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import PatientDashboard from './components/PatientDashboard/PatientDashboard';
+import DoctorDashboard from './components/DoctorDashboard/DoctorDashboard';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+
 
 function App() {
   
@@ -11,7 +15,9 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
-         
+          <Route path="/patientDashboard" element={<PatientDashboard/>}/>
+          <Route path="/doctorDashboard" element={<DoctorDashboard/>}/>
+          <Route path="/adminDashboard" element={<AdminDashboard/>}/>
         </Routes>
       </Router>
    
