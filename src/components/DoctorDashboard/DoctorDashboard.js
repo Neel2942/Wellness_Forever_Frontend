@@ -29,13 +29,13 @@ function DoctorDashboard() {
         <p>Loading...</p>
       ) : (
         <div className="container mt-4">
+          <h2>Doctor Dashboard</h2>
           <div className="sidebar">
             <button className="sidebar-button">Appointment</button>
             <button className="sidebar-button">Bookings</button>
             <button className="sidebar-button">Profile</button>
           </div>
           <div className="content">
-            <h2>Doctor Dashboard</h2>
             <table className="custom-table">
               <thead>
                 <tr>

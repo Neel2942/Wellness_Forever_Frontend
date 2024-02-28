@@ -1,0 +1,90 @@
+/* AdminDashboard.css */
+
+.container {
+    display: flex;
+    flex-direction: row; /* Make container a column */
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Add margin between heading and sidebar */
+}
+
+.sidebar-button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-button:hover {
+    background-color: #2c3e50;
+}
+
+.content {
+    width: 100%; /* Ensure content takes up full width */
+}
+
+h2 {
+    color: #3f51b5;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-rows:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
+.custom-rows:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.custom-column,
+.custom-data {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-column {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.custom-data {
+    font-size: 14px;
+}
+
+/* Hover effect on table rows */
+.custom-rows:hover {
+    background-color: #dcdcdc;
+    transition: background-color 0.3s ease;
+}

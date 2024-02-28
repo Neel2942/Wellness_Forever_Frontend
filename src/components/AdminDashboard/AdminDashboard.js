@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react'
+import "./AdminDashboard.css";
 
 function AdminDashboard() {
 
@@ -28,10 +29,13 @@ function AdminDashboard() {
     {loading ? (
      <p>Loading...</p>
    ) : (
-
      <div className="container mt-4">
-         <h2>Admin Dashboard</h2>
-       
+        <h2>Admin Dashboard</h2>
+          <div className="sidebar">
+            <button className="sidebar-button">List Of Users</button>
+            <button className="sidebar-button">Doctor's Appointment</button>
+            <button className="sidebar-button">Patient's Appointment</button>
+          </div>
              <table className="custom-table">
                <thead>
                  <tr>
