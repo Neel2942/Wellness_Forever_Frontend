@@ -5,6 +5,7 @@ import PatientDashboard from './components/PatientDashboard/PatientDashboard';
 import DoctorDashboard from './components/DoctorDashboard/DoctorDashboard';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import BookingAppointment from './components/BookingAppointment/BookingAppointment';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/patientDashboard" element={<PatientDashboard/>}/>
           <Route path="/doctorDashboard" element={<DoctorDashboard/>}/>
           <Route path="/adminDashboard" element={<AdminDashboard/>}/>
+          <Route path="/bookingAppointment" element={<BookingAppointment/>}/>
         </Routes>
       </Router>
    
