@@ -7,6 +7,7 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import BookingAppointment from './components/BookingAppointment/BookingAppointment';
 
+
 function App() {
   
   return (

@@ -5,7 +5,6 @@ import "./DoctorDashboard.css";
 function DoctorDashboard() {
   const [doctorData, setDoctorData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isLoggedIn, setisLoggedIn] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,9 +14,6 @@ function DoctorDashboard() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const result = await response.json();
-        if (result === "notLoggedIn") {
-          setisLoggedIn(false);
-        }
         setDoctorData(result);
         setLoading(false);
       } catch (error) {
@@ -27,74 +23,61 @@ function DoctorDashboard() {
     };
     fetchData();
   }, []);
-  if (isLoggedIn) {
-    return (
-      <React.Fragment>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <div>
-            <h2>Doctor Dashboard</h2>
-            <div className='doctorContainer'>
-              <div id='doctorNavBar'>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to='/doctorDashboard'>Appointments</Link>
-                    </li>
-                    <li>
-                      <Link to='/records'>Records</Link>
-                    </li>
-                    <li>
-                      <Link to='/patientAppointments'>Patient's Appointments</Link>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
 
-          <div id="doctorData">
-              <table className='doctor-custom-table'>
-                <thead>
-                  <tr>
-                    <th className='custom-column'>No.</th>
-                    <th className='custom-column'>Appointment With</th>
-                    <th className='custom-column'>Date</th>
-                    <th className='custom-column'>Time</th>
-                    <th className='custom-column'>Status</th>
-                    <th className='custom-column'>Option</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {doctorData.map((item) => (
-                    <tr
-                      className='doctor-custom-rows'
-                      key={item._id}>
-                      <td className='doctor-custom-data'>{item.no}</td>
-                      <td className='doctor-custom-data'>{item.appointmentWith}</td>
-                      <td className='doctor-custom-data'>{item.date}</td>
-                      <td className='doctor-custom-data'>{item.time}</td>
-                      <td className='doctor-custom-data'>{item.status}</td>
-                      <td className='doctor-custom-data'><button id="doctor-cancel-button" type="submit">Cancel</button></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              </div>
-            </div>
+  return (
+    <React.Fragment>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="container mt-4">
+          <div className="sidebar">
+            <button className="sidebar-button">Appointment</button>
+            <button className="sidebar-button">Bookings</button>
+            <button className="sidebar-button">Profile</button>
           </div>
-        )}
-      </React.Fragment>
-    );
-  } else {
-    return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the patient dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <div className="content">
+            <h2>Doctor Dashboard</h2>
+            <table className="custom-table">
+              <thead>
+                <tr>
+                  <th className="custom-column">No.</th>
+                  <th className="custom-column">Appointment With</th>
+                  <th className="custom-column">Date</th>
+                  <th className="custom-column">Time</th>
+                  <th className="custom-column">Status</th>
+                  <th className="custom-column">Option</th>
+                </tr>
+              </thead>
+              <tbody>
+                {doctorData.map((item) => (
+                  <tr className="custom-rows" key={item._id}>
+                    <td className="custom-data">{item.no}</td>
+                    <td className="custom-data">{item.appointmentWith}</td>
+                    <td className="custom-data">{item.date}</td>
+                    <td className="custom-data">{item.time}</td>
+                    <td className="custom-data">{item.status}</td>
+                    <td className="custom-data">{item.option}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </React.Fragment>
-    );
-  }
+      )}
+    </React.Fragment>
+  );
+}
+else{
+  return(
+    <React.Fragment>
+        <div>
+        <p>Please log in to access the doctor dashboard.</p>
+        <Link to="/login">Login</Link>
+      </div>
+    </React.Fragment>
+  )
+ }
+
 }
 
 export default DoctorDashboard;
