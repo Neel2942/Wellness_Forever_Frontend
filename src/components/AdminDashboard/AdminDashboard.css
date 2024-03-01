@@ -1,14 +1,14 @@
-/* DcotorDashboard.css */
+/* AdminDashboard.css */
 
 /* Main container */
-.doctorContainer {
+.adminContainer {
     display: grid;
     grid-template-columns: 15% 3fr;
     gap: 20px;
   }
   
   /* Navbar styles */
-  #doctorNavBar {
+  #adminNavBar {
     background-color: #526d82;
     padding: 20px;
     height: 70vh;
@@ -16,23 +16,23 @@
     border-bottom-left-radius: 10px; /* Add curve to bottom left corner */
   }
   
-  #doctorNavBar nav ul {
+  #adminNavBar nav ul {
     list-style-type: none;
     padding: 0;
   }
   
-  #doctorNavBar nav ul li {
+  #adminNavBar nav ul li {
     margin-bottom: 25px;
   }
   
-  #doctorNavBar nav ul li a {
+  #adminNavBar nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
   }
   
   /* Main data styles */
-  #doctorData {
+  #adminData {
     padding: 20px;
     background-color: #526d82;
     border-top-right-radius: 10px; /* Add curve to top right corner */
@@ -40,38 +40,38 @@
   }
   
   /* Table styles */
-  .doctor-custom-table {
+  .admin-custom-table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .doctor-custom-table th,
-  .doctor-custom-table td {
+  .admin-custom-table th,
+  .admin-custom-table td {
     padding: 8px;
     text-align: left;
   }
-  .doctor-custom-table tr {
+  .admin-custom-table tr {
     border-radius: 10px; /* Add curve to table rows */
   }
   
-  .doctor-custom-table tr:nth-child(odd) {
+  .admin-custom-table tr:nth-child(odd) {
     background-color: #DDE6ED; /* Alternate row color for odd rows */
     border-radius: 10px; /* Add curve to rows */
   }
   
-  .doctor-custom-table tr:nth-child(even) {
+  .admin-custom-table tr:nth-child(even) {
     background-color: #B6BBC4; /* Alternate row color for even rows */
     border-radius: 10px; /* Add curve to rows */
   }
 
-  #doctor-cancel-button{
+  #admin-cancel-button{
     background-color: #F28585;
     border-radius: 20px;
     color: black;
     font-weight: bold;
   }
   
-  /* .doctor-custom-table tr:hover {
+  /* .admin-custom-table tr:hover {
     background-color: #f0f0f0;
   } */
   

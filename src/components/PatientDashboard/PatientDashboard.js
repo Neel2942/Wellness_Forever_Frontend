@@ -19,10 +19,9 @@ function PatientDashboard() {
         if (result === "notLoggedIn") {
           setisLoggedIn(false);
         }
-
         setPatientData(result);
         setLoading(false);
-      } catch (error) {
+        } catch (error) {
         console.error('Error fetching data:', error);
         setLoading(false);
       }
