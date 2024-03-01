@@ -1,10 +1,12 @@
 import React,{ useState, useEffect } from 'react'
+import { Link} from 'react-router-dom';
 import "./AdminDashboard.css";
 
 function AdminDashboard() {
 
     const [adminData, setAdminData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isLoggedIn,setisLoggedIn]=useState(true);
   
     useEffect(() => {
       const fetchData = async () => {
@@ -14,6 +16,9 @@ function AdminDashboard() {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
           const result = await response.json();
+          if (result === "notLoggedIn") {
+            setisLoggedIn(false);
+          }
           setAdminData(result);
           setLoading(false);
         } catch (error) {
@@ -24,6 +29,7 @@ function AdminDashboard() {
       fetchData();
     }, []);
 
+if(isLoggedIn){
   return (
     <React.Fragment>
     {loading ? (
@@ -61,6 +67,17 @@ function AdminDashboard() {
      
   </React.Fragment>
   )
+}
+else{
+  return(
+    <React.Fragment>
+        <div>
+        <p>Please log in to access the admin dashboard.</p>
+        <Link to="/login">Login</Link>
+      </div>
+    </React.Fragment>
+  )
+ }
 }
 
 export default AdminDashboard
