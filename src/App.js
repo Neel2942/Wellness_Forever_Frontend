@@ -6,11 +6,9 @@ import DoctorDashboard from './components/DoctorDashboard/DoctorDashboard';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 
-
 function App() {
   
   return (
-
       <Router>
         <Routes>
           <Route path="/login" element={<Login/>}/>
@@ -20,7 +18,6 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashboard/>}/>
         </Routes>
       </Router>
-   
   )
 }
 
