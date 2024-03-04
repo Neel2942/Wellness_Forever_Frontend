@@ -1,0 +1,22 @@
+footer {
+     background-color: #526D82;
+     color: #DDF2FD;
+     padding: 16px;
+     text-align: center;
+   }
+   
+   .footer-content {
+     max-width: 1200px;
+     margin: 0 auto;
+   }
+   
+   .logo {
+     width: 25px;
+     height: 25px;
+   }
+   
+   a {
+     text-decoration: none;
+     color: #fff;
+   }
+   
