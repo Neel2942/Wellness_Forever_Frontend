@@ -6,6 +6,7 @@ import DoctorDashboard from './components/DoctorDashboard/DoctorDashboard';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import BookingAppointment from './components/BookingAppointment/BookingAppointment';
+import CancelAppointment from './components/CancelAppointment/CancelAppointment';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/doctorDashboard" element={<DoctorDashboard/>}/>
           <Route path="/adminDashboard" element={<AdminDashboard/>}/>
           <Route path="/bookingAppointment" element={<BookingAppointment/>}/>
+          <Route path="/cancelAppointment" element={<CancelAppointment/>}/>
         </Routes>
       </Router>
   )
