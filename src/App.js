@@ -7,6 +7,8 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import BookingAppointment from './components/BookingAppointment/BookingAppointment';
 import CancelAppointment from './components/CancelAppointment/CancelAppointment';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/adminDashboard" element={<AdminDashboard/>}/>
           <Route path="/bookingAppointment" element={<BookingAppointment/>}/>
           <Route path="/cancelAppointment" element={<CancelAppointment/>}/>
+          <Route path="/header" element={<Header/>}/>
+          <Route path="/footer" element={<Footer/>}/>
         </Routes>
       </Router>
   )

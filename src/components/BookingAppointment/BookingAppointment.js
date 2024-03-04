@@ -122,11 +122,14 @@ function BookingAppointment() {
                     {formErrors.address && <p className="errorMsg">{formErrors.address}</p>}
                 </div>
                 <div  className="form-group">
-                    <label htmlFor="category">Category</label>
+                    <label htmlFor="category">Doctor</label>
                     <select name="category" onChange={(e) => setCategory(e.target.value)} defaultValue="" >
-                        <option value="" disabled >Select Category</option>
-                        <option value="Dermatologist">Dermatologist</option>
-                        <option value="Orthopadic">Orthopadic</option>
+                        <option value="" disabled >Select Doctor</option>
+                        <option value="Dermatologist">Dr. Neel Patel</option>
+                        <option value="Orthopadic">Dr. Karan Dhiman</option>
+                        <option value="Orthopadic">Dr. Swapnil Nanavati</option>
+                        <option value="Orthopadic">Dr. Zaid Alam</option>
+                        <option value="Orthopadic">Dr. Nidhi Shetty</option>
                     </select>
                     {formErrors.category && <p className="errorMsg">{formErrors.category}</p>}
                 </div>
