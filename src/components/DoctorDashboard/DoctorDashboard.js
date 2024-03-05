@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useLocation} from "react-router-dom";
 import "./DoctorDashboard.css";
+import Navbar from "../Navbar/Navbar";
 
 function DoctorDashboard() {
   const [doctorData, setDoctorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const {state}=useLocation();
+  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +39,7 @@ function DoctorDashboard() {
           <div>
             <h2>Doctor Dashboard</h2>
             <div className='doctorContainer'>
-              <div id='doctorNavBar'>
+              {/* <div id='doctorNavBar'>
                 <nav>
                   <ul>
                     <li>
@@ -50,7 +53,8 @@ function DoctorDashboard() {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </div> */}
+              <Navbar userType={state}></Navbar>
 
           <div id="doctorData">
               <table className='doctor-custom-table'>
@@ -89,7 +93,7 @@ function DoctorDashboard() {
     return (
       <React.Fragment>
         <div>
-          <p>Please log in to access the patient dashboard.</p>
+          <p>Please log in to access the doctor dashboard.</p>
           <Link to='/login'>Login</Link>
         </div>
       </React.Fragment>

@@ -1,49 +1,23 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import './BookingAppointment.css';
 
 function BookingAppointment() {
-    const [fullName, setFullName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [address, setAddress] = useState('');
-    const [category, setCategory] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [reason, setReason] = useState('');
+    const [symptoms, setSymptoms] = useState('');
+    const [status, setStatus] = useState('Upcoming');
     const [formErrors, setFormErrors] = useState({});
     const path = useNavigate();
+    const{state}=useLocation();
+    const [doctorName,setDoctorName] = useState(state.doctorName);
+    const [doctorId,setDoctor] = useState(state.doctorId);
+    console.log(state);
 
     const validateForm = () => {
         const errors = {};
-    
-        if (!fullName) {
-            errors.fullName = "Full Name is required";
-        } else if (!/^[^-\s\d][a-zA-Z\s-]+$/.test(fullName)) {
-            errors.fullName = "Invalid Full Name format";
-        }
-    
-        if (!email) {
-            errors.email = 'Email is required.';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            errors.email = 'Invalid email address.';
-        }
-    
-        if (!phoneNumber) {
-            errors.phoneNumber = 'Phone number is required.';
-        } else if (!/^\d{10}$/.test(phoneNumber)) {
-            errors.phoneNumber = 'Phone number must be 10 digits.';
-        }
-    
-        if (!address) {
-            errors.address = 'Address is required.';
-        }
-    
-        if (!category) {
-            errors.category = 'Category is required.';
-        }
-    
+       
         if (!date) {
             errors.date = 'Date is required.';
         } else {
@@ -58,8 +32,8 @@ function BookingAppointment() {
             errors.time = 'Time is required.';
         } 
 
-        if (!reason) {
-            errors.reason = 'Reason is required.';
+        if (!symptoms) {
+            errors.symptoms = 'Symptoms is required.';
         } 
     
         setFormErrors(errors);
@@ -71,14 +45,11 @@ function BookingAppointment() {
         if(validateForm()){
             console.log("All correct");
             const bookingAppointmentData = {
-                fullName,
-                email,
-                phoneNumber,
-                address,
-                category,
+                doctorId,
                 date,
                 time,
-                reason
+                symptoms,
+                status
             };
 
             try {
@@ -94,44 +65,18 @@ function BookingAppointment() {
     }
 
     const handleCancel = () => {
-         path("/"); // redirect to home page
+         path("/patientDashboard"); // redirect to home page
     }
 
     return (
         <div >
             <h1>Book Appointment</h1>
             <form onSubmit={submit} id="bookAppointment">
+
                 <div className="form-group">
-                    <label htmlFor="fullName">Full Name</label>
-                    <input type="text" onChange={(e) => setFullName(e.target.value)} name="fullName" id="fullName" />
-                    {formErrors.fullName && <p className="errorMsg">{formErrors.fullName}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email address</label>
-                    <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" id="email" />
-                    {formErrors.email && <p className="errorMsg">{formErrors.email}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="phoneNumber">Phone Number</label>
-                    <input type="number" onChange={(e) => setPhoneNumber(e.target.value)} name="phoneNumber" id="phoneNumber" />
-                    {formErrors.phoneNumber && <p className="errorMsg">{formErrors.phoneNumber}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="address">Address</label>
-                    <input type="text" onChange={(e) => setAddress(e.target.value)} name="address" id="address" />
-                    {formErrors.address && <p className="errorMsg">{formErrors.address}</p>}
-                </div>
-                <div  className="form-group">
-                    <label htmlFor="category">Doctor</label>
-                    <select name="category" onChange={(e) => setCategory(e.target.value)} defaultValue="" >
-                        <option value="" disabled >Select Doctor</option>
-                        <option value="Dermatologist">Dr. Neel Patel</option>
-                        <option value="Orthopadic">Dr. Karan Dhiman</option>
-                        <option value="Orthopadic">Dr. Swapnil Nanavati</option>
-                        <option value="Orthopadic">Dr. Zaid Alam</option>
-                        <option value="Orthopadic">Dr. Nidhi Shetty</option>
-                    </select>
-                    {formErrors.category && <p className="errorMsg">{formErrors.category}</p>}
+                    <label htmlFor="doctorName">Doctor Name</label>
+                    <input type="text" value={doctorName} name="date" id="date" disabled />
+                   
                 </div>
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
@@ -144,8 +89,8 @@ function BookingAppointment() {
                     {formErrors.time && <p className="errorMsg">{formErrors.time}</p>}
                 </div>
                 <div className="form-group">
-                    <label htmlFor="reason">Reason for appointment</label>
-                    <textarea onChange={(e) => setReason(e.target.value)} name="reason" id="reason" />
+                    <label htmlFor="symptoms">Symptoms</label>
+                    <textarea onChange={(e) => setSymptoms(e.target.value)} name="symptoms" id="symptoms" />
                     {formErrors.reason && <p className="errorMsg">{formErrors.reason}</p>}
                 </div>
                 <div className="form-group" id='buttons'>

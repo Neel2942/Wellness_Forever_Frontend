@@ -37,8 +37,15 @@ const Login = () =>{
     
                 try{
                     const response  = await axios.post("/login", userinfo);
-                    if(response.data === 'exist'){
-                        path("/homepage");
+                    if(response.data[0].userType === 'doctor'){
+                        path("/doctorDashboard",{state : response.data[0].userType})
+
+                    }else if(response.data[0].userType === 'patient'){
+                        path("/patientDashboard",{state : response.data[0].userType})
+
+                    }else if(response.data[0].userType === 'admin'){
+                        path("/adminDashboard",{state : response.data[0].userType})
+
                     }else if (response.data === "incorrectPassword"){
                         console.log("Incorrect Password");
     
