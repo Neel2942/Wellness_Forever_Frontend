@@ -1,12 +1,16 @@
 import React,  { useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
+import { Link,useLocation} from 'react-router-dom';
 import './PatientDashboard.css'
+import Navbar from '../Navbar/Navbar';
+
 
 function PatientDashboard() {
 
   const [patientData, setPatientData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn,setisLoggedIn]=useState(true);
+  const {state}=useLocation();
+  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +42,7 @@ if(isLoggedIn){
        <div>
            <h2>Patient Dashboard</h2>
            <div className="patientContainer">
-               <div id="pateintNavBar">
+               {/* <div id="pateintNavBar">
                  <nav>
                    <ul>
                      <li><Link to="/patientDashboard">Appointments</Link></li>
@@ -47,8 +51,8 @@ if(isLoggedIn){
                      <li><Link to="/profile">Profile</Link></li>
                    </ul>
                  </nav>
-               </div>
-         
+               </div> */}
+          <Navbar  userType={state}></Navbar>
                <div id="patientData">
                    <table className="patient-custom-table">
                      <thead>

@@ -9,6 +9,7 @@ import BookingAppointment from './components/BookingAppointment/BookingAppointme
 import CancelAppointment from './components/CancelAppointment/CancelAppointment';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import DoctorsList from './components/DoctorsList/DoctorsList';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/cancelAppointment" element={<CancelAppointment/>}/>
           <Route path="/header" element={<Header/>}/>
           <Route path="/footer" element={<Footer/>}/>
+          <Route path="/doctorsList" element={<DoctorsList/>}/>
         </Routes>
       </Router>
   )

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./AdminDashboard.css";
+import Navbar from "../Navbar/Navbar";
 
 function AdminDashboard() {
   const [adminData, setAdminData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const {state}=useLocation();
+  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +40,8 @@ function AdminDashboard() {
           <div>
             <h2>Admin Dashboard</h2>
             <div className='adminContainer'>
-              <div id='adminNavBar'>
+              <Navbar userType={state}></Navbar>
+              {/* <div id='adminNavBar'>
                 <nav>
                   <ul>
                     <li>
@@ -55,7 +59,7 @@ function AdminDashboard() {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </div> */}
               <div id='adminData'>
                 <table className='admin-custom-table'>
                   <thead>

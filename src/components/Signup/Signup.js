@@ -14,6 +14,8 @@ function Signup() {
     const [age, setAge] = useState('');
     const [userType, setUserType] = useState('patient');
     const [specialization, setSpecialization] = useState('');
+    const [description, setDescription] = useState('');
+
     const [formErrors,setFormErrors] = useState({});
 
     const validateForm = ()=> {
@@ -59,6 +61,9 @@ function Signup() {
             if (!specialization) {
                 errors.specialization = 'Specialization is required.';
             }
+            if (!description) {
+                errors.description = 'Description is required.';
+            }
         }
     
         setFormErrors(errors);
@@ -78,6 +83,7 @@ function Signup() {
                 age,
                 userType,
                 specialization: userType === 'doctor' ? specialization : '',
+                description: userType === 'doctor' ? description :''
             };
         
             try {
@@ -120,9 +126,17 @@ function Signup() {
                 </select>
 
                 {userType === 'doctor' && (
-                    <input type="text" onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" name="specialization" />
-                )}
-                {formErrors.specialization && <p className="errorMsg" >{formErrors.specialization}</p>}
+    <>
+        <input type="text" onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" name="specialization" />
+        {formErrors.specialization && <p className="errorMsg" >{formErrors.specialization}</p>}
+        
+        <input type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" name="description" />
+        {formErrors.description && <p className="errorMsg">{formErrors.description}</p>}
+        
+    </>
+)}
+
+
                 
 
                 <input type="submit" value="Signup" />
@@ -140,4 +154,4 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default Signup;
