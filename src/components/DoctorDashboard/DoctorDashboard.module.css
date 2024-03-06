@@ -1,34 +1,7 @@
-/* DcotorDashboard.css */
-
-/* Main container */
 .doctorContainer {
     display: grid;
     grid-template-columns: 15% 3fr;
     gap: 20px;
-  }
-  
-  /* Navbar styles */
-  #doctorNavBar {
-    background-color: #526d82;
-    padding: 20px;
-    height: 70vh;
-    border-top-left-radius: 10px; /* Add curve to top left corner */
-    border-bottom-left-radius: 10px; /* Add curve to bottom left corner */
-  }
-  
-  #doctorNavBar nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #doctorNavBar nav ul li {
-    margin-bottom: 25px;
-  }
-  
-  #doctorNavBar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
   }
   
   /* Main data styles */
@@ -40,38 +13,34 @@
   }
   
   /* Table styles */
-  .doctor-custom-table {
+  .doctor_custom_table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .doctor-custom-table th,
-  .doctor-custom-table td {
+  .doctor_custom_table th,
+  .doctor_custom_table td {
     padding: 8px;
     text-align: left;
   }
-  .doctor-custom-table tr {
+  .doctor_custom_table tr {
     border-radius: 10px; /* Add curve to table rows */
   }
   
-  .doctor-custom-table tr:nth-child(odd) {
+  .doctor_custom_table tr:nth-child(odd) {
     background-color: #DDE6ED; /* Alternate row color for odd rows */
     border-radius: 10px; /* Add curve to rows */
   }
   
-  .doctor-custom-table tr:nth-child(even) {
+  .doctor_custom_table tr:nth-child(even) {
     background-color: #B6BBC4; /* Alternate row color for even rows */
     border-radius: 10px; /* Add curve to rows */
   }
 
-  #doctor-cancel-button{
+  #doctor_cancel_button{
     background-color: #F28585;
     border-radius: 20px;
     color: black;
     font-weight: bold;
   }
-  
-  /* .doctor-custom-table tr:hover {
-    background-color: #f0f0f0;
-  } */
   

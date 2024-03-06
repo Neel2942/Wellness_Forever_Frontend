@@ -1,35 +1,35 @@
-.cancel-page-container {
+.cancel_page_container {
     min-width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
     background-color: #164863;
   }
   
-  .cancel-request-form {
+  .cancel_request_form {
     margin-top: 20px;
   }
 
-  .cancel-heading{
+  .cancel_heading{
     text-align: center;
   }
   
-  .form-field {
+  .form_field {
     margin-bottom: 20px;
   }
   
-  .form-field label {
+  .form_field label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  .form-field div {
+  .form_field div {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
-  .cancel-request-form textarea {
+  .cancel_request_form textarea {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -37,13 +37,13 @@
     border-radius: 4px;
   }
   
-  .button-group {
+  .button_group {
     margin-top: 20px;
   }
   
-  .submit-btn,
-  .reject-btn,
-  .accept-btn {
+  .submit_btn,
+  .reject_btn,
+  .accept_btn {
     padding: 8px 16px;
     margin-right: 10px;
     border: none;
@@ -51,17 +51,17 @@
     cursor: pointer;
   }
   
-  .submit-btn {
+  .submit_btn {
     background-color: #4caf50;
     color: white;
   }
   
-  .reject-btn {
+  .reject_btn {
     background-color: #f44336;
     color: white;
   }
   
-  .accept-btn {
+  .accept_btn {
     background-color: #008cba;
     color: white;
   }
