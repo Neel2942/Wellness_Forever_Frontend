@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link ,useLocation} from "react-router-dom";
-import "./DoctorDashboard.css";
+import styles from "./DoctorDashboard.module.css";
 import Navbar from "../Navbar/Navbar";
 
 function DoctorDashboard() {
@@ -38,52 +38,36 @@ function DoctorDashboard() {
         ) : (
           <div>
             <h2>Doctor Dashboard</h2>
-            <div className='doctorContainer'>
-              {/* <div id='doctorNavBar'>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to='/doctorDashboard'>Appointments</Link>
-                    </li>
-                    <li>
-                      <Link to='/records'>Records</Link>
-                    </li>
-                    <li>
-                      <Link to='/patientAppointments'>Patient's Appointments</Link>
-                    </li>
-                  </ul>
-                </nav>
-              </div> */}
+            <div className={styles.doctorContainer}>
               <Navbar userType={state}></Navbar>
-
-          <div id="doctorData">
-              <table className='doctor-custom-table'>
-                <thead>
-                  <tr>
-                    <th className='custom-column'>No.</th>
-                    <th className='custom-column'>Appointment With</th>
-                    <th className='custom-column'>Date</th>
-                    <th className='custom-column'>Time</th>
-                    <th className='custom-column'>Status</th>
-                    <th className='custom-column'>Option</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {doctorData.map((item) => (
-                    <tr
-                      className='doctor-custom-rows'
-                      key={item._id}>
-                      <td className='doctor-custom-data'>{item.no}</td>
-                      <td className='doctor-custom-data'>{item.appointmentWith}</td>
-                      <td className='doctor-custom-data'>{item.date}</td>
-                      <td className='doctor-custom-data'>{item.time}</td>
-                      <td className='doctor-custom-data'>{item.status}</td>
-                      <td className='doctor-custom-data'><button id="doctor-cancel-button" type="submit">Cancel</button></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              </div>
+              <div id={styles.doctorData}>
+                  <table className={styles.doctor_custom_table}>
+                    <thead>
+                      <tr>
+                        <th className={styles.custom_column}>No.</th>
+                        <th className={styles.custom_column}>Appointment With</th>
+                        <th className={styles.custom_column}>Date</th>
+                        <th className={styles.custom_column}>Time</th>
+                        <th className={styles.custom_column}>Status</th>
+                        <th className={styles.custom_column}>Option</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {doctorData.map((item) => (
+                        <tr
+                          className={styles.doctor_custom_rows}
+                          key={item._id}>
+                          <td className={styles.doctor_custom_data}>{item.no}</td>
+                          <td className={styles.doctor_custom_data}>{item.appointmentWith}</td>
+                          <td className={styles.doctor_custom_data}>{item.date}</td>
+                          <td className={styles.doctor_custom_data}>{item.time}</td>
+                          <td className={styles.doctor_custom_data}>{item.status}</td>
+                          <td className={styles.doctor_custom_data}><button id={styles.doctor_cancel_button} type="submit">Cancel</button></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
             </div>
           </div>
         )}

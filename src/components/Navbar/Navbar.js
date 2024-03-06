@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import styles from "./Navbar.module.css"
 
 function Navbar(props) {
     console.log("Navbar");
@@ -7,7 +8,7 @@ function Navbar(props) {
     if(props.userType ==='admin'){
         return (
             <div>
-                 <div id='adminNavBar'>
+                 <div id={styles.NavBar}>
                         <nav>
                           <ul>
                             <li>
@@ -33,7 +34,7 @@ function Navbar(props) {
     else if(props.userType === 'doctor'){
         return (
             <div>
-                 <div id='adminNavBar'>
+                 <div id={styles.NavBar}>
                         <nav>
                           <ul>
                             <li><Link to='/doctorDashboard'>Appointments</Link></li>
@@ -48,7 +49,7 @@ function Navbar(props) {
     else if(props.userType === 'patient'){
         return (
             <div>
-                 <div id='adminNavBar'>
+                 <div id={styles.NavBar}>
                         <nav>
                           <ul>
                           <li><Link to="/patientDashboard">Appointments</Link></li>

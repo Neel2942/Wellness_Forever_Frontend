@@ -80,20 +80,20 @@ function BookingAppointment() {
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="date">Date</label>
-                    <input type="date" onChange={(e) => setDate(e.target.value)} name="date" id="date" />
+                    <input type="date" onChange={(e) => setDate(e.target.value)} name="date" id={styles.date} />
                     {formErrors.date && <p className={styles.errorMsg}>{formErrors.date}</p>}
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="time">Time</label>
-                    <input type="time" onChange={(e) => setTime(e.target.value)} name="time" id="time" />
+                    <input type="time" onChange={(e) => setTime(e.target.value)} name="time" id={styles.time} />
                     {formErrors.time && <p className={styles.errorMsg}>{formErrors.time}</p>}
                 </div>
                 <div className={styles.form_group}>
                     <label htmlFor="symptoms">Symptoms</label>
-                    <textarea onChange={(e) => setSymptoms(e.target.value)} name="symptoms" id="symptoms" />
-                    {formErrors.reason && <p className={styles.errorMsg}>{formErrors.reason}</p>}
+                    <textarea onChange={(e) => setSymptoms(e.target.value)} name="symptoms" id={styles.symptoms} />
+                    {formErrors.symptoms && <p className={styles.errorMsg}>{formErrors.symptoms}</p>}
                 </div>
-                <div className={styles.form_group} id='buttons'>
+                <div className={styles.form_group} id={styles.buttons}>
                     <input type="button" id={styles.cancel} value="Cancel" onClick={handleCancel}/>
                     <input type="submit" id={styles.submit} value="Submit" />
                 </div>

@@ -1,12 +1,12 @@
 // Header.js
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
     <header>
-      <div className="navbar">
-      <div className="logo">
+      <div className={styles.navbar}>
+      <div className={styles.logo}>
         <a href="/">Wellness Forever</a>
       </div>
         <ul className="links">
@@ -15,7 +15,7 @@ export default function Header() {
           <li><a href="services">Services</a></li>
           <li><a href="contact">Contact</a></li>
         </ul>
-        <a href="/" className="action_btn">Login</a>
+        <a href="/" className={styles.action_btn}>Login</a>
       </div>
     </header>
   );

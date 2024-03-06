@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CancelAppointment.css";
+import styles from "./CancelAppointment.module.css";
 
 function CancelAppointment() {
   const [cancelRequest, setCancelRequest] = useState({
@@ -25,28 +25,28 @@ function CancelAppointment() {
   };
 
   return (
-    <div className="cancel-page-container">
+    <div className={styles.cancel_page_container}>
       <h2>Admin</h2>
 
-      <form onSubmit={handleCancelRequest} className="cancel-request-form">
-      <h3 className="cancel-heading">Cancel Request Form</h3>
-        <div className="form-field">
+      <form onSubmit={handleCancelRequest} className={styles.cancel_request_form}>
+      <h3 className={styles.cancel_heading}>Cancel Request Form</h3>
+        <div className={styles.form_field}>
           <label>Patient Name:</label>
           <div>{cancelRequest.patientName}</div>
         </div>
-        <div className="form-field">
+        <div className={styles.form_field}>
           <label>Doctor Name:</label>
           <div>{cancelRequest.doctorName}</div>
         </div>
-        <div className="form-field">
+        <div className={styles.form_field}>
           <label>Time:</label>
           <div>{cancelRequest.time}</div>
         </div>
-        <div className="form-field">
+        <div className={styles.form_field}>
           <label>Date:</label>
           <div>{cancelRequest.date}</div>
         </div>
-        <div className="form-field">
+        <div className={styles.form_field}>
           <label>Reason for Cancellation:</label>
           <textarea
             name="reason"
@@ -55,10 +55,10 @@ function CancelAppointment() {
             rows="4" // Adjust the number of rows as needed
           />
         </div>
-        <div className="button-group">
+        <div className={styles.button_group}>
           
-          <button className="reject-btn">Reject Request</button>
-          <button className="accept-btn">Accept Request</button>
+          <button className={styles.reject_btn}>Reject Request</button>
+          <button className={styles.accept_btn}>Accept Request</button>
         </div>
       </form>
     </div>

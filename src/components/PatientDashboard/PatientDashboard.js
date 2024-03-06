@@ -1,6 +1,6 @@
 import React,  { useState, useEffect } from 'react';
 import { Link,useLocation} from 'react-router-dom';
-import './PatientDashboard.css'
+import styles from './PatientDashboard.module.css'
 import Navbar from '../Navbar/Navbar';
 
 
@@ -41,40 +41,29 @@ if(isLoggedIn){
      ) : (
        <div>
            <h2>Patient Dashboard</h2>
-           <div className="patientContainer">
-               {/* <div id="pateintNavBar">
-                 <nav>
-                   <ul>
-                     <li><Link to="/patientDashboard">Appointments</Link></li>
-                     <li><Link to="/bookingAppointment">Booking</Link></li>
-                     <li><Link to="/records">Records</Link></li>
-                     <li><Link to="/profile">Profile</Link></li>
-                   </ul>
-                 </nav>
-               </div> */}
-          <Navbar  userType={state}></Navbar>
-               <div id="patientData">
-                   <table className="patient-custom-table">
+           <div className={styles.patientContainer}>
+               <Navbar  userType={state}></Navbar>
+               <div id={styles.patientData}>
+                   <table className={styles.patient_custom_table}>
                      <thead>
                        <tr>
-                         <th className="patient-custom-column">No.</th>
-                         <th className="patient-custom-column">Appointment With</th>
-                         <th className="patient-custom-column">Date</th>
-                         <th className="patient-custom-column">Time</th>
-                         <th className="patient-custom-column">Status</th>
-                         <th className="patient-custom-column">Option</th>
+                         <th className={styles.patient_custom_column}>No.</th>
+                         <th className={styles.patient_custom_column}>Appointment With</th>
+                         <th className={styles.patient_custom_column}>Date</th>
+                         <th className={styles.patient_custom_column}>Time</th>
+                         <th className={styles.patient_custom_column}>Status</th>
+                         <th className={styles.patient_custom_column}>Option</th>
                        </tr>
                      </thead>
                      <tbody>
                      {patientData.map((item) => (
-                         <tr className='patient-custom-rows' key={item._id}>
-                           <td className="patient-custom-data">{item.no}</td>
-                           <td className="patient-custom-data">{item.appointmentWith}</td>
-                           <td className="patient-custom-data">{item.date}</td>
-                           <td className="patient-custom-data">{item.time}</td>
-                           <td className="patient-custom-data">{item.status}</td>
-                           <td className="patient-custom-data">{item.option}</td>
-                           
+                         <tr className={styles.patient_custom_rows} key={item._id}>
+                           <td className={styles.patient_custom_data}>{item.no}</td>
+                           <td className={styles.patient_custom_data}>{item.appointmentWith}</td>
+                           <td className={styles.patient_custom_data}>{item.date}</td>
+                           <td className={styles.patient_custom_data}>{item.time}</td>
+                           <td className={styles.patient_custom_data}>{item.status}</td>
+                           <td className={styles.patient_custom_data}>{item.option}</td>
                          </tr>
                        ))}
                      </tbody>

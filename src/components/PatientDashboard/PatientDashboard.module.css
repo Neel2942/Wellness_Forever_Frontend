@@ -1,0 +1,37 @@
+.patientContainer {
+  display: grid;
+  grid-template-columns: 15% 3fr;
+  gap: 20px;
+}
+
+#patientData {
+  padding: 20px;
+  background-color: #526d82;
+  border-top-right-radius: 10px; 
+  border-bottom-right-radius: 10px; 
+}
+
+.patient_custom_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patient_custom_table th,
+.patient_custom_table td {
+  padding: 8px;
+  text-align: left;
+}
+.patient_custom_table tr {
+  border-radius: 10px; /* Add curve to table rows */
+}
+
+.patient_custom_table tr:nth-child(odd) {
+  background-color: #DDE6ED; /* Alternate row color for odd rows */
+  border-radius: 10px; /* Add curve to rows */
+}
+
+.patient_custom_table tr:nth-child(even) {
+  background-color: #B6BBC4; /* Alternate row color for even rows */
+  border-radius: 10px; /* Add curve to rows */
+}
+

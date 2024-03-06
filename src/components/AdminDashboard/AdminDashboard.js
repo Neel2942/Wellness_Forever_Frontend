@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./AdminDashboard.css";
+import styles from "./AdminDashboard.module.css";
 import Navbar from "../Navbar/Navbar";
 
 function AdminDashboard() {
@@ -39,50 +39,31 @@ function AdminDashboard() {
         ) : (
           <div>
             <h2>Admin Dashboard</h2>
-            <div className='adminContainer'>
+            <div className={styles.adminContainer}>
               <Navbar userType={state}></Navbar>
-              {/* <div id='adminNavBar'>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to='/adminDashboard'>List Of Users</Link>
-                    </li>
-                    <li>
-                      <Link to='/doctorAppointments'>
-                        Doctor's Appointments
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to='/patientAppointments'>
-                        Patient's Appointments
-                      </Link>
-                    </li>
-                  </ul>
-                </nav>
-              </div> */}
-              <div id='adminData'>
-                <table className='admin-custom-table'>
+              <div id={styles.adminData}>
+                <table className={styles.admin_custom_table}>
                   <thead>
                     <tr>
-                      <th className='admin-custom-column'>Name</th>
-                      <th className='admin-custom-column'>Type Of User</th>
-                      <th className='admin-custom-column'>Specilization</th>
+                      <th className={styles.admin_custom_column}>Name</th>
+                      <th className={styles.admin_custom_column}>Type Of User</th>
+                      <th className={styles.admin_custom_column}>Specilization</th>
                     </tr>
                   </thead>
                   <tbody>
                     {adminData.map((item) => (
                       <tr
-                        className='admin-custom-rows'
+                        className={styles.admin_custom_rows}
                         key={item._id}>
-                        <td className='admin-custom-data'>{item.fullName}</td>
-                        <td className='admin-custom-data'>{item.userType}</td>
+                        <td className={styles.admin_custom_data}>{item.fullName}</td>
+                        <td className={styles.admin_custom_data}>{item.userType}</td>
                         {item.userType === "doctor" && (
-                          <td className='admin-custom-data'>
+                          <td className={styles.admin_custom_data}>
                             {item.specialization}
                           </td>
                         )}
                         {item.userType === "patient" && (
-                          <td className='admin-custom-data'>---</td>
+                          <td className={styles.admin_custom_data}>---</td>
                         )}
                       </tr>
                     ))}

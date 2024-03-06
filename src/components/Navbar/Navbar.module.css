@@ -1,0 +1,22 @@
+#NavBar {
+    background-color: #526d82;
+    padding: 20px;
+    height: 70vh;
+    border-top-left-radius: 10px; /* Add curve to top left corner */
+    border-bottom-left-radius: 10px; /* Add curve to bottom left corner */
+  }
+  
+  #NavBar nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #NavBar nav ul li {
+    margin-bottom: 25px;
+  }
+  
+  #NavBar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }

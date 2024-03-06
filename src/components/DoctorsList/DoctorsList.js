@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from "react";
-import { Link,useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import styles from'./DoctorsList.module.css';
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
@@ -29,29 +29,32 @@ function DoctorsList() {
     };
     fetchData();
   }, []);
-  const handleBookNow = (doctorId,doctorName) => {
+
+  const handleBookNow = (doctorId, doctorName) => {
     // Handle booking logic here
     console.log('Booking appointment with doctor ID:', doctorId);
-    path("/bookingAppointment",{state:{doctorId:doctorId,doctorName:doctorName}});
+    path("/bookingAppointment", { state: { doctorId: doctorId, doctorName: doctorName } });
   };
+
   if (isLoggedIn) {
     return (
       <React.Fragment>
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div>
-            <ul>
-          {doctorsList.map((doctor) => (
-            <li key={doctor.id}>
-              <div>
-                <h2>{doctor.fullName}</h2>
-                <p>Specialization: {doctor.specialization}</p>
-                <button onClick={() => handleBookNow(doctor.id,doctor.fullName)}>Book Now</button>
-              </div>
-            </li>
-          ))}
-        </ul>
+          <div className="container">
+            <div className="row">
+              {doctorsList.map((doctor) => (
+                <div key={doctor.id} className="col-md-4 mb-4">
+                  <div className={styles.doctor_card}>
+                    <h2>{doctor.fullName}</h2>
+                    <p className={styles.specialization}>Specialization: {doctor.specialization}</p>
+                    <p className={styles.description}>Description: {doctor.description}</p>
+                    <button className="btn btn-primary" onClick={() => handleBookNow(doctor.id, doctor.fullName)}>Book Now</button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </React.Fragment>
@@ -68,4 +71,4 @@ function DoctorsList() {
   }
 }
 
-export default DoctorsList
+export default DoctorsList;

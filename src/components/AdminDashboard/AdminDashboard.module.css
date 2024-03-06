@@ -1,6 +1,4 @@
-/* AdminDashboard.css */
 
-/* Main container */
 .adminContainer {
     display: grid;
     grid-template-columns: 15% 3fr;
@@ -40,31 +38,31 @@
   }
   
   /* Table styles */
-  .admin-custom-table {
+  .admin_custom_table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .admin-custom-table th,
-  .admin-custom-table td {
+  .admin_custom_table th,
+  .admin_custom_table td {
     padding: 8px;
     text-align: left;
   }
-  .admin-custom-table tr {
+  .admin_custom_table tr {
     border-radius: 10px; /* Add curve to table rows */
   }
   
-  .admin-custom-table tr:nth-child(odd) {
+  .admin_custom_table tr:nth-child(odd) {
     background-color: #DDE6ED; /* Alternate row color for odd rows */
     border-radius: 10px; /* Add curve to rows */
   }
   
-  .admin-custom-table tr:nth-child(even) {
+  .admin_custom_table tr:nth-child(even) {
     background-color: #B6BBC4; /* Alternate row color for even rows */
     border-radius: 10px; /* Add curve to rows */
   }
 
-  #admin-cancel-button{
+  #admin_cancel_button{
     background-color: #F28585;
     border-radius: 20px;
     color: black;
