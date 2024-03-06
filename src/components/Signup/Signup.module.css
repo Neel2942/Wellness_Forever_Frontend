@@ -6,6 +6,7 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
   }
   
   .Signup h1 {
@@ -32,8 +33,9 @@
   }
   
   .Signup input[type="submit"] {
+    margin-top: 10px;
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #526D82;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -43,7 +45,8 @@
   }
   
   .Signup input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #91C8E4;
+    color: black;
   }
   
   .Signup p {
@@ -55,7 +58,7 @@
     display: block;
     text-align: center;
     font-size: 16px;
-    color: #007bff;
+    color: #526D82;
     text-decoration: none;
   }
   

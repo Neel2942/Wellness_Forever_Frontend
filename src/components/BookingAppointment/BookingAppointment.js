@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import './BookingAppointment.css';
+import styles from './BookingAppointment.module.css';
 
 function BookingAppointment() {
     const [date, setDate] = useState('');
@@ -71,31 +71,31 @@ function BookingAppointment() {
     return (
         <div >
             <h1>Book Appointment</h1>
-            <form onSubmit={submit} id="bookAppointment">
+            <form onSubmit={submit} id={styles.bookAppointment}>
 
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="doctorName">Doctor Name</label>
                     <input type="text" value={doctorName} name="date" id="date" disabled />
                    
                 </div>
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="date">Date</label>
                     <input type="date" onChange={(e) => setDate(e.target.value)} name="date" id="date" />
-                    {formErrors.date && <p className="errorMsg">{formErrors.date}</p>}
+                    {formErrors.date && <p className={styles.errorMsg}>{formErrors.date}</p>}
                 </div>
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="time">Time</label>
                     <input type="time" onChange={(e) => setTime(e.target.value)} name="time" id="time" />
-                    {formErrors.time && <p className="errorMsg">{formErrors.time}</p>}
+                    {formErrors.time && <p className={styles.errorMsg}>{formErrors.time}</p>}
                 </div>
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="symptoms">Symptoms</label>
                     <textarea onChange={(e) => setSymptoms(e.target.value)} name="symptoms" id="symptoms" />
-                    {formErrors.reason && <p className="errorMsg">{formErrors.reason}</p>}
+                    {formErrors.reason && <p className={styles.errorMsg}>{formErrors.reason}</p>}
                 </div>
-                <div className="form-group" id='buttons'>
-                    <input type="button" id='cancel' value="Cancel" onClick={handleCancel}/>
-                    <input type="submit" id='submit' value="Submit" />
+                <div className={styles.form_group} id='buttons'>
+                    <input type="button" id={styles.cancel} value="Cancel" onClick={handleCancel}/>
+                    <input type="submit" id={styles.submit} value="Submit" />
                 </div>
             </form>
         </div>

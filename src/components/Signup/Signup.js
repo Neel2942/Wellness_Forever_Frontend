@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import "./Signup.css";
+import styles from "./Signup.module.css";
 
 function Signup() {
     const path = useNavigate();
@@ -25,7 +25,7 @@ function Signup() {
           errors.firstName="Firstname is required"
           
         } else if (!/^[^-\s\d][a-zA-Z\s-]+$/.test(firstName)) {
-            errors.firstName="Firstname is required"
+            errors.firstName="First Name must contain only alphabetic characters"
            
         }
     
@@ -93,7 +93,6 @@ function Signup() {
                     console.log("User exists");
                     
                 } else if (response.data === "notexists") {
-                      // Redirect to login page or display success message
                     path("/login");
                 }
             } catch (error) {
@@ -105,53 +104,46 @@ function Signup() {
 
     return (
         <>
-            <div className="Signup">
+            <div className={styles.Signup}>
             <h1>Signup</h1>
             <form onSubmit={submit}>
                 <input type="text" onChange={(e) => setFirstName(e.target.value)} placeholder="First Name" name="fname" />
-                {formErrors.firstName && <p className="errorMsg" >{formErrors.firstName}</p>}
+                {formErrors.firstName && <p className={styles.errorMsg} >{formErrors.firstName}</p>}
                 <input type="text" onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" name="lname" />
-                {formErrors.lastName && <p className="errorMsg" >{formErrors.lastName}</p>}
+                {formErrors.lastName && <p className={styles.errorMsg} >{formErrors.lastName}</p>}
                 <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email address" name="email" />
-                {formErrors.email && <p className="errorMsg" >{formErrors.email}</p>}
+                {formErrors.email && <p className={styles.errorMsg} >{formErrors.email}</p>}
                 <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Create your Password" name="password" />
-                {formErrors.password && <p className="errorMsg" >{formErrors.password}</p>}
+                {formErrors.password && <p className={styles.errorMsg} >{formErrors.password}</p>}
                 <input type="number" onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Phone Number" name="pnumber" />
-                {formErrors.phoneNumber && <p className="errorMsg" >{formErrors.phoneNumber}</p>}
+                {formErrors.phoneNumber && <p className={styles.errorMsg} >{formErrors.phoneNumber}</p>}
                 <input type="number" onChange={(e) => setAge(e.target.value)} placeholder="Age" name="age" />
-                {formErrors.age && <p className="errorMsg" >{formErrors.age}</p>}
+                {formErrors.age && <p className={styles.errorMsg} >{formErrors.age}</p>}
                 <select value={userType} onChange={(e) => setUserType(e.target.value)}>
                     <option value="patient">Patient</option>
                     <option value="doctor">Doctor</option>
                 </select>
 
                 {userType === 'doctor' && (
-    <>
-        <input type="text" onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" name="specialization" />
-        {formErrors.specialization && <p className="errorMsg" >{formErrors.specialization}</p>}
-        
-        <input type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" name="description" />
-        {formErrors.description && <p className="errorMsg">{formErrors.description}</p>}
-        
-    </>
-)}
-
-
-                
-
+                    <>
+                        <input type="text" onChange={(e) => setSpecialization(e.target.value)} placeholder="Specialization" name="specialization" />
+                        {formErrors.specialization && <p className={styles.errorMsg} >{formErrors.specialization}</p>}
+                        
+                        <input type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" name="description" />
+                        {formErrors.description && <p className={styles.errorMsg}>{formErrors.description}</p>}
+                        
+                    </>
+                )}
                 <input type="submit" value="Signup" />
             </form>
             <br />
-
             <p>OR</p>
-
             <br />
-
             <Link to="/login">Click Here to Login</Link>
         </div>
-        </>
+    </>
 
     );
 }
 
-export default Signup;
+export default Signup;

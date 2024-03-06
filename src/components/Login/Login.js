@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import {useNavigate,Link} from "react-router-dom";
 import axios from "axios";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 const Login = () =>{
     const path = useNavigate();
@@ -50,7 +50,6 @@ const Login = () =>{
                         console.log("Incorrect Password");
     
                     }else if (response.data === "notExists") {
-                        // Redirect to login page or display success message
                         path("/login")
                         console.log("User exists");
                     }
@@ -64,22 +63,18 @@ const Login = () =>{
         }
 
     return(
-        <div className="Login">
+        <div className={styles.Login}>
             <h1>Login</h1>
             <form action="POST">
                 <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email address" name="email" />
-                {formErrors.email && <p className="errorMsg" >{formErrors.email}</p>}
+                {formErrors.email && <p className={styles.errorMsg} >{formErrors.email}</p>}
                 <input type="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder="Enter your Password" name="password" />
-                {formErrors.password && <p className="errorMsg" >{formErrors.password}</p>}
+                {formErrors.password && <p className={styles.errorMsg} >{formErrors.password}</p>}
                 <input type="submit" onClick={submit}/>
 
             </form>
             <br/>
-            
-            <p>OR</p>
-            
-            <br/>
-            
+            <p>OR</p> 
             <Link to="/signup">Register Here</Link>
         </div>
     )

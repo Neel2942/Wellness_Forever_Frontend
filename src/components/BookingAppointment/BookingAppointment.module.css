@@ -1,12 +1,6 @@
 
-.form-group {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    margin-left: 10%;
-}
-form {
+
+#bookAppointment {
     background-color: #526D82;
     padding: 20px;
     border-radius: 10px;
@@ -14,13 +8,20 @@ form {
     width: 65%;
     margin-left: 20%;
 }
-label {
+#bookAppointment .form_group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}
+#bookAppointment label {
     margin-right: 10px;
     width: 120px; 
 }
 
-input,
-textarea,select {
+#bookAppointment input,
+#bookAppointment textarea,#bookAppointment select {
     width: 60%; 
     padding: 10px;
     border: 1px solid #ccc;
@@ -29,7 +30,7 @@ textarea,select {
     margin-bottom: 10px;
 }
 
-input[type="submit"] {
+#bookAppointment input[type="submit"] {
     background-color: #74E291;
     color: #fff;
     border: none;
@@ -52,7 +53,7 @@ input[type="submit"] {
     margin-top: 5%;
 }
 
-.errorMsg {
+#bookAppointment .errorMsg {
     color: red;
     margin-top: 5px;
     margin-left: 10px;
