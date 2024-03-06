@@ -63,7 +63,7 @@ if(isLoggedIn){
                            <td className={styles.patient_custom_data}>{item.date}</td>
                            <td className={styles.patient_custom_data}>{item.time}</td>
                            <td className={styles.patient_custom_data}>{item.status}</td>
-                           <td className={styles.patient_custom_data}>{item.option}</td>
+                           <td className={styles.patient_custom_data}><button id={styles.patient_cancel_button} type="submit">Cancel</button></td>
                          </tr>
                        ))}
                      </tbody>

@@ -35,3 +35,10 @@
   border-radius: 10px; /* Add curve to rows */
 }
 
+#patient_cancel_button{
+  background-color: #F28585;
+  border-radius: 20px;
+  color: black;
+  font-weight: bold;
+}
+
