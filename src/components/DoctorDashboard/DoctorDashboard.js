@@ -7,6 +7,7 @@ function DoctorDashboard() {
   const [doctorData, setDoctorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const [userType,setUserType] = useState("doctor");
   const {state}=useLocation();
   console.log(state);
 
@@ -20,6 +21,10 @@ function DoctorDashboard() {
         const result = await response.json();
         if (result === "notLoggedIn") {
           setisLoggedIn(false);
+        }else{
+          if(state !== userType){
+            setisLoggedIn(false);
+          }
         }
         setDoctorData(result);
         setLoading(false);
