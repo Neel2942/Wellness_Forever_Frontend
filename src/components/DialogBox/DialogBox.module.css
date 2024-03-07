@@ -1,0 +1,51 @@
+/* DialogBox.module.css */
+
+.dialogBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 50%; /* Adjust the width as needed */
+    height: 60vh; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Add scroll if content exceeds maximum height */
+    z-index: 1000;
+  }
+  
+  .dialogContent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  span {
+    margin-left: 5px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+  }
+  
+  .closeButton:hover {
+    color: red;
+  }
+  
