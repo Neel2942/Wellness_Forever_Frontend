@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation  } from "react-router-dom";
 import styles from'./DoctorsList.module.css';
+import Navbar from '../Navbar/Navbar';
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const path = useNavigate();
-
+  const location = useLocation();
+  const { userType } = location.state;
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,20 +45,25 @@ function DoctorsList() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="container">
+          <div className="container-fluid ">
             <div className="row">
-              {doctorsList.map((doctor) => (
-                <div key={doctor.id} className="col-md-4 mb-4">
-                  <div className={styles.doctor_card}>
-                    <h2>{doctor.fullName}</h2>
-                    <p className={styles.specialization}>Specialization: {doctor.specialization}</p>
-                    <p className={styles.description}>Description: {doctor.description}</p>
-                    <button className="btn btn-primary" onClick={() => handleBookNow(doctor.id, doctor.fullName)}>Book Now</button>
+              <div className="col-2">
+                <Navbar userType={userType} />
+              </div>
+              <div className="col">
+                {doctorsList.map((doctor) => (
+                  <div key={doctor.id} className="col mb-4 ">
+                    <div className={styles.doctor_card}>
+                      <h2>{doctor.fullName}</h2>
+                      <p className={styles.specialization}>Specialization: {doctor.specialization}</p>
+                      <p className={styles.description}>Description: {doctor.description}</p>
+                      <button className="btn btn-primary" onClick={() => handleBookNow(doctor.id, doctor.fullName)}>Book Now</button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+            </div>
         )}
       </React.Fragment>
     );
