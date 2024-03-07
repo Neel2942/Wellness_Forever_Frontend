@@ -41,7 +41,9 @@ const Login = () =>{
                         path("/doctorDashboard",{state : response.data[0].userType})
 
                     }else if(response.data[0].userType === 'patient'){
-                        path("/patientDashboard",{state : response.data[0].userType})
+                        console.log(response.data[0]);
+                        path("/patientDashboard",{state : response.data[0]})
+
 
                     }else if(response.data[0].userType === 'admin'){
                         path("/adminDashboard",{state : response.data[0].userType})
