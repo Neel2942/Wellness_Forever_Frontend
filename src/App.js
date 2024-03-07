@@ -15,6 +15,8 @@ import Profile from './components/Profile/Profile';
 function App() {
   
   return (
+    <>
+    <Header />
       <Router>
         <Routes>
           <Route path="/login" element={<Login/>}/>
@@ -31,6 +33,8 @@ function App() {
           
         </Routes>
       </Router>
+      <Footer></Footer>
+      </>
   )
 }
 

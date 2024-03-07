@@ -2,6 +2,8 @@ import React,  { useState, useEffect } from 'react';
 import { Link,useLocation} from 'react-router-dom';
 import styles from './PatientDashboard.module.css'
 import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 
 function PatientDashboard() {
@@ -45,10 +47,12 @@ if(isLoggedIn){
        <p>Loading...</p>
      ) : (
        <div>
-           <h2>Patient Dashboard</h2>
+    
+           
            <div className={styles.patientContainer}>
                <Navbar  userType={state}></Navbar>
                <div id={styles.patientData}>
+               <h2 className='text-white text-center mb-3'>Patient Dashboard</h2>
                    <table className={styles.patient_custom_table}>
                      <thead>
                        <tr>
@@ -75,7 +79,9 @@ if(isLoggedIn){
                    </table>
                 </div>
              </div>
+            
          </div>
+
      )}
        
     </React.Fragment>

@@ -1,14 +1,17 @@
 import React from "react";
-import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer>
-      <div className={styles.footer_content}>
-        <div className={styles.logo}>
-          <a href="/">Wellness Forever</a>
+    <footer className="custom-bg text-black py-4">
+      <div className="container">
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="mr-2">
+            <a href="/" className="text-black text-decoration-none">
+              <strong>Wellness Forever</strong>
+            </a>
+          </div>
+          <p className="mb-0">&copy; 2024 Wellness Forever. All rights reserved.</p>
         </div>
-        <p>&copy; 2024 Wellness Forever. All rights reserved.</p>
       </div>
     </footer>
   );

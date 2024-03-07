@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation  } from "react-router-dom";
 import styles from'./DoctorsList.module.css';
 import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
@@ -46,6 +47,7 @@ function DoctorsList() {
           <p>Loading...</p>
         ) : (
           <div className="container-fluid ">
+      
             <div className="row">
               <div className="col-2">
                 <Navbar userType={userType} />
