@@ -53,7 +53,7 @@ function Navbar(props) {
                         <nav>
                           <ul>
                           <li><Link to="/patientDashboard">Appointments</Link></li>
-                         <li><Link to="/doctorsList">Booking</Link></li>
+                         <li><Link to="/doctorsList" state={{userType:props.userType}}>Booking</Link></li>
                          <li><Link to="/records">Records</Link></li>
                          <li><Link to="/profile">Profile</Link></li>
                           </ul>
