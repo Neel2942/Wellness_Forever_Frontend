@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from'./DoctorsList.module.css';
+import Navbar from '../Navbar/Navbar';
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const location = useLocation();
+  const { userType } = location.state;
+  console.log(userType);
   const path = useNavigate();
 
   useEffect(() => {
@@ -42,7 +46,8 @@ function DoctorsList() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="container">
+          <div className={styles.container}>
+            <Navbar userType={userType}></Navbar>
             <div className="row">
               {doctorsList.map((doctor) => (
                 <div key={doctor.id} className="col-md-4 mb-4">
