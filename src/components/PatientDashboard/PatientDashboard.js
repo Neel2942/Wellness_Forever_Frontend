@@ -49,37 +49,40 @@ if(isLoggedIn){
        <div>
     
            
-           <div className={styles.patientContainer}>
-               <Navbar  userType={state}></Navbar>
-               <div id={styles.patientData}>
+           <div className="d-grid gap-3 ">
+           <div className='row g-3'>
+           <div className="col-2">
+           <Navbar userType={state || ''} />
+         </div>
+               <div className="p-4 patient-bg rounded-right col"               >
                <h2 className='text-white text-center mb-3'>Patient Dashboard</h2>
-                   <table className={styles.patient_custom_table}>
+                   <table className="table table-striped table-bordered">
                      <thead>
                        <tr>
-                         <th className={styles.patient_custom_column}>No.</th>
-                         <th className={styles.patient_custom_column}>Appointment With</th>
-                         <th className={styles.patient_custom_column}>Date</th>
-                         <th className={styles.patient_custom_column}>Time</th>
-                         <th className={styles.patient_custom_column}>Status</th>
-                         <th className={styles.patient_custom_column}>Option</th>
+                         <th >No.</th>
+                         <th >Appointment With</th>
+                         <th >Date</th>
+                         <th >Time</th>
+                         <th >Status</th>
+                         <th >Option</th>
                        </tr>
                      </thead>
                      <tbody>
                      {patientData.map((item) => (
-                         <tr className={styles.patient_custom_rows} key={item._id}>
-                           <td className={styles.patient_custom_data}>{item.no}</td>
-                           <td className={styles.patient_custom_data}>{item.appointmentWith}</td>
-                           <td className={styles.patient_custom_data}>{item.date}</td>
-                           <td className={styles.patient_custom_data}>{item.time}</td>
-                           <td className={styles.patient_custom_data}>{item.status}</td>
-                           <td className={styles.patient_custom_data}><button id={styles.patient_cancel_button} type="submit">Cancel</button></td>
+                         <tr  key={item._id}>
+                           <td >{item.no}</td>
+                           <td >{item.appointmentWith}</td>
+                           <td >{item.date}</td>
+                           <td >{item.time}</td>
+                           <td >{item.status}</td>
+                           <td ><button className='btn btn-danger' type="submit">Cancel</button></td>
                          </tr>
                        ))}
                      </tbody>
                    </table>
                 </div>
              </div>
-            
+             </div>
          </div>
 
      )}

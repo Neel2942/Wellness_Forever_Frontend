@@ -9,7 +9,7 @@ export default function Header() {
         <nav className="navbar  navbar-light custom-bg">
           <div className="container d-flex justify-content-between align-items-center">
             <div className="col d-flex ">
-              <img src={logo} width={"20%"} height={"20%"} />
+              <img src={logo} width={"15%"} height={"15%"} />
             </div>
             <a className="navbar-brand col text-center text-black" href="/">
               Wellness Forever
@@ -19,7 +19,7 @@ export default function Header() {
               className=" col d-flex justify-content-end"
               id="navbarNav"
             >
-              <a href="/" className="btn btn-primary">
+              <a href="/login" className="btn btn-primary">
                 Login
               </a>
             </div>
