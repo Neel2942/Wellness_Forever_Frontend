@@ -1,9 +1,7 @@
 import React,  { useState, useEffect } from 'react';
 import { Link,useLocation} from 'react-router-dom';
-import styles from './PatientDashboard.module.css'
 import Navbar from '../Navbar/Navbar';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import DialogBox from "../DialogBox/DialogBox";
 
 
 function PatientDashboard() {
@@ -12,6 +10,7 @@ function PatientDashboard() {
   const [loading, setLoading] = useState(true);
   const [isLoggedIn,setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("patient");
+  const [openDialogIndex, setOpenDialogIndex] = useState(null);
   const {state}=useLocation();
   console.log("patientDashboard");
   console.log(state);
@@ -41,6 +40,14 @@ function PatientDashboard() {
     fetchData();
   }, []);
 
+  const openDialog = (index) => {
+    setOpenDialogIndex(index);
+  };
+
+  const closeDialog = () => {
+    setOpenDialogIndex(null);
+  };
+
 if(isLoggedIn){
   return (
     <React.Fragment>
@@ -66,10 +73,11 @@ if(isLoggedIn){
                          <th >Time</th>
                          <th >Status</th>
                          <th >Option</th>
+                         <th >Action</th>
                        </tr>
                      </thead>
                      <tbody>
-                     {patientData.map((item) => (
+                     {patientData.map((item,index) => (
                          <tr  key={item._id}>
                            <td >{item.no}</td>
                            <td >{item.appointmentWith}</td>
@@ -77,6 +85,9 @@ if(isLoggedIn){
                            <td >{item.time}</td>
                            <td >{item.status}</td>
                            <td ><button className='btn btn-danger' type="submit">Cancel</button></td>
+                           <td>
+                          <button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button>
+                        </td>
                          </tr>
                        ))}
                      </tbody>
@@ -87,7 +98,9 @@ if(isLoggedIn){
          </div>
 
      )}
-       
+       {openDialogIndex !== null && (
+          <DialogBox isOpen={true} handleClose={closeDialog} data={patientData[openDialogIndex]} />
+        )}
     </React.Fragment>
  )
 }

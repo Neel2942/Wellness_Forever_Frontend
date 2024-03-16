@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./DialogBox.module.css";
 
 function DialogBox({ isOpen, handleClose, data }) {
-  const { appointmentWith, date, time, symptoms } = data;
-
+  const { appointmentWith, date, time, symptoms, userType} = data;
+  const [usertype,setUserType] = useState(userType);
   return (
     <div className={isOpen ? styles.dialogBox : styles.hidden}>
       <div className={styles.dialogContent}>
         <button className={styles.closeButton} onClick={handleClose}>Close</button>
-        <h2>Patient Details</h2>
+        { (userType == "patient") 
+        ? ( <h2>Doctor Details</h2>) : (<h2>Patient Details</h2>)}
         <div className={styles.field}>
           <label>Name:</label>
           <span>{appointmentWith}</span>

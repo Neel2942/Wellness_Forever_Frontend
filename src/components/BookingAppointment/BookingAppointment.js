@@ -55,7 +55,8 @@ function BookingAppointment() {
             try {
                 const response = await axios.post("/bookingAppointment", bookingAppointmentData);
                 if (response.data === "Booked") {
-                    console.log("Appointment Booked");  
+                    console.log("Appointment Booked");
+                    path("/patientDashboard",{state:state.state});  
                 }
             } catch (error) {
                 console.error("Error:", error);
