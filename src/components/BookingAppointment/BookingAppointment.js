@@ -65,7 +65,7 @@ function BookingAppointment() {
     }
 
     const handleCancel = () => {
-         path("/patientDashboard"); // redirect to home page
+         path("/patientDashboard",{state:state.state}); // redirect to home page
     }
 
     return (
