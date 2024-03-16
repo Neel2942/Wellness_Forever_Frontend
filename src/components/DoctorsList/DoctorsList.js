@@ -12,6 +12,8 @@ function DoctorsList() {
   const path = useNavigate();
   const location = useLocation();
   const { userType } = location.state;
+  console.log("DoctorList");
+  console.log(userType);
  
   useEffect(() => {
     const fetchData = async () => {

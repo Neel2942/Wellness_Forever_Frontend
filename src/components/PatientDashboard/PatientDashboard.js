@@ -13,6 +13,7 @@ function PatientDashboard() {
   const [isLoggedIn,setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("patient");
   const {state}=useLocation();
+  console.log("patientDashboard");
   console.log(state);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ if(isLoggedIn){
            <div className="d-grid gap-3 ">
            <div className='row g-3'>
            <div className="col-2">
-           <Navbar userType={state || ''} />
+           <Navbar userType={state} />
          </div>
                <div className="p-4 patient-bg rounded-right col"               >
                <h2 className='text-white text-center mb-3'>Patient Dashboard</h2>
