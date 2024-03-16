@@ -11,9 +11,9 @@ function DoctorsList() {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const path = useNavigate();
   const location = useLocation();
-  const { userType } = location.state;
+  const { user } = location.state;
   console.log("DoctorList");
-  console.log(userType);
+  console.log(user);
  
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +39,7 @@ function DoctorsList() {
   const handleBookNow = (doctorId, doctorName) => {
     // Handle booking logic here
     console.log('Booking appointment with doctor ID:', doctorId);
-    path("/bookingAppointment", { state: { doctorId: doctorId, doctorName: doctorName } });
+    path("/bookingAppointment", { state: { doctorId: doctorId, doctorName: doctorName,state:user } });
   };
 
   if (isLoggedIn) {
@@ -52,7 +52,7 @@ function DoctorsList() {
       
             <div className="row">
               <div className="col-2">
-                <Navbar userType={userType} />
+                <Navbar userType={user} />
               </div>
               <div className="col">
                 {doctorsList.map((doctor) => (
