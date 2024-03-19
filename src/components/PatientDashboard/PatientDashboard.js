@@ -2,6 +2,7 @@ import React,  { useState, useEffect } from 'react';
 import { Link,useLocation} from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import DialogBox from "../DialogBox/DialogBox";
+import CancelFormDialogBox from '../CancelFormDialogBox/CancelFormDialogBox';
 
 
 function PatientDashboard() {
@@ -11,6 +12,7 @@ function PatientDashboard() {
   const [isLoggedIn,setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("patient");
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
+  const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
   console.log("patientDashboard");
   console.log(state);
@@ -48,6 +50,13 @@ function PatientDashboard() {
     setOpenDialogIndex(null);
   };
 
+  const openCancelFormDialog = (index) => {
+    setOpenCancelDialogIndex(index);
+  };
+
+  const closeCancelDialog = () => {
+    setOpenCancelDialogIndex(null);
+  };
 if(isLoggedIn){
   return (
     <React.Fragment>
@@ -84,10 +93,8 @@ if(isLoggedIn){
                            <td >{item.date}</td>
                            <td >{item.time}</td>
                            <td >{item.status}</td>
-                           <td ><button className='btn btn-danger' type="submit">Cancel</button></td>
-                           <td>
-                          <button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button>
-                        </td>
+                           <td ><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)}>Cancel</button></td>
+                           <td><button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button></td>
                          </tr>
                        ))}
                      </tbody>
@@ -100,6 +107,9 @@ if(isLoggedIn){
      )}
        {openDialogIndex !== null && (
           <DialogBox isOpen={true} handleClose={closeDialog} data={patientData[openDialogIndex]} />
+        )}
+        {openCancelDialogIndex !== null && (
+          <CancelFormDialogBox isOpen={true} handleClose={closeCancelDialog} data={patientData[openCancelDialogIndex]}/>
         )}
     </React.Fragment>
  )

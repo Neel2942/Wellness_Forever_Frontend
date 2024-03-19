@@ -3,12 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./DoctorDashboard.module.css";
 import Navbar from "../Navbar/Navbar";
 import DialogBox from "../DialogBox/DialogBox";
+import CancelFormDialogBox from '../CancelFormDialogBox/CancelFormDialogBox';
 
 function DoctorDashboard() {
   const [doctorData, setDoctorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [userType, setUserType] = useState("doctor");
+  const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const { state } = useLocation();
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
 
@@ -45,6 +47,14 @@ function DoctorDashboard() {
     setOpenDialogIndex(null);
   };
 
+  const openCancelFormDialog = (index) => {
+    setOpenCancelDialogIndex(index);
+  };
+
+  const closeCancelDialog = () => {
+    setOpenCancelDialogIndex(null);
+  };
+
   if (isLoggedIn) {
     return (
       <React.Fragment>
@@ -75,12 +85,9 @@ function DoctorDashboard() {
                         <td className={styles.doctor_custom_data}>{item.appointmentWith}</td>
                         <td className={styles.doctor_custom_data}>{item.date}</td>
                         <td className={styles.doctor_custom_data}>{item.time}</td>
-                        <td className={styles.doctor_custom_data}>{item.status}</td>
-                        <td className={styles.doctor_custom_data}>
-                          <button className='btn btn-danger' type="submit">Cancel</button>
-                        </td>
-                        <td className={styles.doctor_custom_data}>
-                          <button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button>
+                        <td className={styles.doctor_custom_data}>{item.status}</td>                       
+                        <td className={styles.doctor_custom_data}><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)}>Cancel</button></td>                        
+                        <td className={styles.doctor_custom_data}><button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button>
                         </td>
                       </tr>
                     ))}
@@ -92,6 +99,9 @@ function DoctorDashboard() {
         )}
         {openDialogIndex !== null && (
           <DialogBox isOpen={true} handleClose={closeDialog} data={doctorData[openDialogIndex]} />
+        )}
+         {openCancelDialogIndex !== null && (
+          <CancelFormDialogBox isOpen={true} handleClose={closeCancelDialog} data={doctorData[openCancelDialogIndex]}/>
         )}
       </React.Fragment>
     );
