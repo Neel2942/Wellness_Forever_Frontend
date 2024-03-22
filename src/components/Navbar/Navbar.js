@@ -15,14 +15,10 @@ function Navbar(props) {
                               <Link to='/adminDashboard'>List Of Users</Link>
                             </li>
                             <li>
-                              <Link to='/doctorAppointments'>
-                                Doctor's Appointments
-                              </Link>
+                              <Link to='/adminAppointmentsList'>Appointments</Link>
                             </li>
                             <li>
-                              <Link to='/patientAppointments'>
-                                Patient's Appointments
-                              </Link>
+                              <Link to='/cancelAppointmentList'>List of Cancel Requests</Link>
                             </li>
                           </ul>
                         </nav>

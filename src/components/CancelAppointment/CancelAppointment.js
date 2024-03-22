@@ -1,27 +1,33 @@
 import React, { useState } from "react";
 import styles from "./CancelAppointment.module.css";
+import { Link, useNavigate, useLocation  } from "react-router-dom";
+import axios from "axios";
 
 function CancelAppointment() {
-  const [cancelRequest, setCancelRequest] = useState({
-    patientName: "",
-    doctorName: "",
-    time: "",
-    date: "",
-    reason: ""
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setCancelRequest({
-      ...cancelRequest,
-      [name]: value
-    });
-  };
+  const location = useLocation();
+  const { cancelId,cancelDetails } = location.state;
+  console.log(cancelId);
+  console.log(cancelDetails);
 
   const handleCancelRequest = async (e) => {
     e.preventDefault();
     // Logic to handle cancellation request submission
-    console.log("Cancel request:", cancelRequest);
+    console.log("Cancel request:", cancelDetails);
+    // Logic to handle cancellation request submission
+    console.log("Cancel request:", cancelDetails);
+    let data={
+      cancelAppointmentId:cancelId
+    }
+    try {
+      const response = await axios.post("/cancelRequest", data);
+
+      if (response.data === "Cancelled") {
+          console.log("Appointment Cancelled");
+      }
+  } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
+  }
   };
 
   return (
@@ -32,27 +38,27 @@ function CancelAppointment() {
       <h3 className={styles.cancel_heading}>Cancel Request Form</h3>
         <div className={styles.form_field}>
           <label>Patient Name:</label>
-          <div>{cancelRequest.patientName}</div>
+          <div>{cancelDetails.patientName}</div>
         </div>
         <div className={styles.form_field}>
           <label>Doctor Name:</label>
-          <div>{cancelRequest.doctorName}</div>
+          <div>{cancelDetails.doctorName}</div>
         </div>
         <div className={styles.form_field}>
           <label>Time:</label>
-          <div>{cancelRequest.time}</div>
+          <div>{cancelDetails.time}</div>
         </div>
         <div className={styles.form_field}>
           <label>Date:</label>
-          <div>{cancelRequest.date}</div>
+          <div>{cancelDetails.date}</div>
         </div>
         <div className={styles.form_field}>
           <label>Reason for Cancellation:</label>
           <textarea
             name="reason"
-            value={cancelRequest.reason}
-            onChange={handleInputChange}
+            value={cancelDetails.reason}
             rows="4" // Adjust the number of rows as needed
+            disabled
           />
         </div>
         <div className={styles.button_group}>

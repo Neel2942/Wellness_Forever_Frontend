@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import DoctorsList from './components/DoctorsList/DoctorsList';
 import Profile from './components/Profile/Profile';
-
+import CancelAppointmentList from './components/CancelAppointmentList/CancelAppointmentList';
 function App() {
   
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route path="/footer" element={<Footer/>}/>
           <Route path="/doctorsList" element={<DoctorsList/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          
+          <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
         </Routes>
       </Router>
       <Footer></Footer>
