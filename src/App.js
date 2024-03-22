@@ -15,8 +15,8 @@ import CancelAppointmentList from './components/CancelAppointmentList/CancelAppo
 function App() {
   
   return (
-    <>
-    <Header />
+    <div className='d-flex flex-column row overflow-hidden'>
+    <Header className="row-3"/>
       <Router>
         <Routes>
           <Route path="/login" element={<Login/>}/>
@@ -33,8 +33,8 @@ function App() {
           <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
         </Routes>
       </Router>
-      <Footer></Footer>
-      </>
+      <Footer className="row-3"></Footer>
+      </div>
   )
 }
 

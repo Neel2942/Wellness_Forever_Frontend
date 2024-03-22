@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation  } from "react-router-dom";
-import styles from'./DoctorsList.module.css';
-import Navbar from '../Navbar/Navbar';
-import Header from '../Header/Header';
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import styles from "./DoctorsList.module.css";
+import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
@@ -14,7 +14,9 @@ function DoctorsList() {
   const { user } = location.state;
   console.log("DoctorList");
   console.log(user);
- 
+
+  const { userType } = location.state;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,8 +40,10 @@ function DoctorsList() {
 
   const handleBookNow = (doctorId, doctorName) => {
     // Handle booking logic here
-    console.log('Booking appointment with doctor ID:', doctorId);
-    path("/bookingAppointment", { state: { doctorId: doctorId, doctorName: doctorName,state:user } });
+    console.log("Booking appointment with doctor ID:", doctorId);
+    path("/bookingAppointment", {
+      state: { doctorId: doctorId, doctorName: doctorName, state: user },
+    });
   };
 
   if (isLoggedIn) {
@@ -48,26 +52,34 @@ function DoctorsList() {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="container-fluid ">
-      
-            <div className="row">
-              <div className="col-2">
-                <Navbar userType={user} />
-              </div>
-              <div className="col">
-                {doctorsList.map((doctor) => (
-                  <div key={doctor.id} className="col mb-4 ">
-                    <div className={styles.doctor_card}>
-                      <h2>{doctor.fullName}</h2>
-                      <p className={styles.specialization}>Specialization: {doctor.specialization}</p>
-                      <p className={styles.description}>Description: {doctor.description}</p>
-                      <button className="btn btn-primary" onClick={() => handleBookNow(doctor.id, doctor.fullName)}>Book Now</button>
+          <div className="d-flex row-3">
+            <Navbar userType={userType} />
+
+            <div className="d-flex flex-wrap flex-grow-1">
+              {doctorsList.map((doctor) => (
+                <div class="m-4 h-30 w-25 ">
+                  <div class="card" style={{ minHeight: "100%" }}>
+                    <div class="card-body">
+                      <h2 class="card-title">{doctor.fullName}</h2>
+                      <p class="card-text">
+                        Specialization: {doctor.specialization}
+                      </p>
+                      <p class="card-text">Description: {doctor.description}</p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onClick={() =>
+                          handleBookNow(doctor.id, doctor.fullName)
+                        }
+                      >
+                        Book Now
+                      </button>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-            </div>
+          </div>
         )}
       </React.Fragment>
     );
@@ -76,7 +88,7 @@ function DoctorsList() {
       <React.Fragment>
         <div>
           <p>Please log in to access the dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <Link to="/login">Login</Link>
         </div>
       </React.Fragment>
     );

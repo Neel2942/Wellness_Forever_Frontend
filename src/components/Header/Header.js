@@ -5,7 +5,7 @@ import logo from "../../logo 1.png";
 export default function Header() {
   return (
     <header>
-      <div className="container-fluid"> {/* Wrap the header in a container */}
+       {/* Wrap the header in a container */}
         <nav className="navbar  navbar-light custom-bg">
           <div className="container d-flex justify-content-between align-items-center">
             <div className="col d-flex ">
@@ -25,7 +25,7 @@ export default function Header() {
             </div>
           </div>
         </nav>
-      </div>
+   
     </header>
   );
 }

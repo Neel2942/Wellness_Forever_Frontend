@@ -1,7 +1,7 @@
 #NavBar {
     background-color: #526d82;
     padding: 20px;
-    height: 80vh;
+    height: 100%;
     border-top-left-radius: 10px; /* Add curve to top left corner */
     border-bottom-left-radius: 10px; /* Add curve to bottom left corner */
   }
