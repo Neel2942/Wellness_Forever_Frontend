@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar';
 function ProfilePage() {
     const location = useLocation();
     const { user } = location.state;
+    console.log(user);
 
     const [editMode, setEditMode] = useState(false);
 

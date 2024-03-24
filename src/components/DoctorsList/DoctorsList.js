@@ -15,8 +15,6 @@ function DoctorsList() {
   console.log("DoctorList");
   console.log(user);
 
-  const { userType } = location.state;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -53,7 +51,7 @@ function DoctorsList() {
           <p>Loading...</p>
         ) : (
           <div className="d-flex row-3">
-            <Navbar userType={userType} />
+            <Navbar userType={user} />
 
             <div className="d-flex flex-wrap flex-grow-1">
               {doctorsList.map((doctor) => (
