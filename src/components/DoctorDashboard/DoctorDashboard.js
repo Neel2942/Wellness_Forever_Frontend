@@ -98,7 +98,7 @@ function DoctorDashboard() {
           </div>
         )}
         {openDialogIndex !== null && (
-          <DialogBox isOpen={true} handleClose={closeDialog} data={doctorData[openDialogIndex]} />
+          <DialogBox isOpen={true} handleClose={closeDialog} data={doctorData[openDialogIndex]} userType='doctor'/>
         )}
          {openCancelDialogIndex !== null && (
           <CancelFormDialogBox isOpen={true} handleClose={closeCancelDialog} data={doctorData[openCancelDialogIndex]}/>

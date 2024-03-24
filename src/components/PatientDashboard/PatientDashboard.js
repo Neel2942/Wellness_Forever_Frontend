@@ -106,7 +106,7 @@ if(isLoggedIn){
 
      )}
        {openDialogIndex !== null && (
-          <DialogBox isOpen={true} handleClose={closeDialog} data={patientData[openDialogIndex]} />
+          <DialogBox isOpen={true} handleClose={closeDialog} data={patientData[openDialogIndex]} userType='patient'/>
         )}
         {openCancelDialogIndex !== null && (
           <CancelFormDialogBox isOpen={true} handleClose={closeCancelDialog} data={patientData[openCancelDialogIndex]}/>
