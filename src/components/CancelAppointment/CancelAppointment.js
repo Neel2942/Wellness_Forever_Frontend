@@ -5,6 +5,7 @@ import axios from "axios";
 
 function CancelAppointment() {
   const location = useLocation();
+  const path = useNavigate();
   const { cancelId,cancelDetails } = location.state;
   console.log(cancelId);
   console.log(cancelDetails);
@@ -23,6 +24,10 @@ function CancelAppointment() {
 
       if (response.data === "Cancelled") {
           console.log("Appointment Cancelled");
+          let obj={
+            userType:'admin'
+          }
+          path("/adminDashboard",{state : obj.userType})
       }
   } catch (error) {
       console.error("Error:", error);

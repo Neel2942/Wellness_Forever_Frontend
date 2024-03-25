@@ -6,6 +6,10 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     margin-top: 120px;
+    
+}
+.container{
+    height: 62.5vh;
 }
 
 .Login h1 {

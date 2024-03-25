@@ -20,6 +20,7 @@ function Navbar(props) {
                             <li>
                               <Link to='/cancelAppointmentList'>List of Cancel Requests</Link>
                             </li>
+                            <li><Link to='/logout'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>
@@ -33,8 +34,9 @@ function Navbar(props) {
                  <div id={styles.NavBar}>
                         <nav>
                           <ul>
-                            <li><Link to='/doctorDashboard'>Appointments</Link></li>
+                            <li><Link to='/doctorDashboard' state={props.userType}>Appointments</Link></li>
                             <li><Link to='/records'>Records</Link></li>
+                            <li><Link to='/logout'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>
@@ -51,6 +53,7 @@ function Navbar(props) {
                          <li><Link to="/doctorsList" state={{user:props.userType}}>Booking</Link></li>
                          <li><Link to="/records">Records</Link></li>
                          <li><Link to="/profile" state={{user:props}}>Profile</Link></li>
+                         <li><Link to='/logout'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>

@@ -13,13 +13,15 @@ import DoctorsList from './components/DoctorsList/DoctorsList';
 import Profile from './components/Profile/Profile';
 import CancelAppointmentList from './components/CancelAppointmentList/CancelAppointmentList';
 import AdminAppoitnmentList from './components/AdminAppoitnmentList/AdminAppoitnmentList';
+import Logout from './components/Logout/Logout';
 function App() {
   
   return (
-    <div className='d-flex flex-column row overflow-hidden'>
-    <Header className="row-3"/>
+   <>
+    <Header/>
       <Router>
         <Routes>
+          <Route path="/" element={<Login/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/patientDashboard" element={<PatientDashboard/>}/>
@@ -33,10 +35,11 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
           <Route path="/adminAppointmentsList" element={<AdminAppoitnmentList/>}/>
+          <Route path="/logout" element={<Logout/>}/>
         </Routes>
       </Router>
-      <Footer className="row-3"></Footer>
-      </div>
+      <Footer ></Footer>
+      </>
   )
 }
 

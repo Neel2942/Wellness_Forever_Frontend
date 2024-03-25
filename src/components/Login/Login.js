@@ -64,7 +64,8 @@ const Login = () =>{
         }
 
     return(
-        <div className={styles.Login}>
+       <div className={styles.container}>
+             <div className={styles.Login}>
             <h1>Login</h1>
             <form action="POST">
                 <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email address" name="email" />
@@ -78,6 +79,7 @@ const Login = () =>{
             <p>OR</p> 
             <Link to="/signup">Register Here</Link>
         </div>
+       </div>
     )
 }
 export default Login;
