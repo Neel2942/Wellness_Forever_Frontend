@@ -35,7 +35,6 @@ function Navbar(props) {
                           <ul>
                             <li><Link to='/doctorDashboard'>Appointments</Link></li>
                             <li><Link to='/records'>Records</Link></li>
-                            <li><Link to='/patientAppointments'>Patient's Appointments</Link></li>
                           </ul>
                         </nav>
                       </div>
