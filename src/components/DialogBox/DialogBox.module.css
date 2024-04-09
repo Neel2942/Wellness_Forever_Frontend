@@ -48,4 +48,6 @@
   .closeButton:hover {
     color: red;
   }
-  
+  .errorMsg{
+    color: red;
+  }
