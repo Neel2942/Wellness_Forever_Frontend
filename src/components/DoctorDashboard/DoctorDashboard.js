@@ -30,6 +30,8 @@ function DoctorDashboard() {
           }
         }
         setDoctorData(result);
+        console.log("Result");
+        console.log(result);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
