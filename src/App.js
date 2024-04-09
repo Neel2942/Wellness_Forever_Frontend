@@ -15,6 +15,8 @@ import CancelAppointmentList from './components/CancelAppointmentList/CancelAppo
 import AdminAppoitnmentList from './components/AdminAppoitnmentList/AdminAppoitnmentList';
 import Logout from './components/Logout/Logout';
 import DoctorProfile from './components/DoctorProfile/doctorprofile';
+import Records from './components/Records/Records';
+import DoctorsRecord from './components/DoctorsRecord/DoctorsRecord';
 
 function App() {
   
@@ -38,6 +40,8 @@ function App() {
           <Route path="/doctorprofile" element={<DoctorProfile/>}/>
           <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
           <Route path="/adminAppointmentsList" element={<AdminAppoitnmentList/>}/>
+          <Route path="/doctorRecords" element={<DoctorsRecord/>}/>
+          <Route path="/records" element={<Records/>}/>
           <Route path="/logout" element={<Logout/>}/>
         </Routes>
       </Router>
