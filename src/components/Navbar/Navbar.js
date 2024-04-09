@@ -35,9 +35,8 @@ function Navbar(props) {
                         <nav>
                           <ul>
                             <li><Link to='/doctorDashboard' state={props.userType}>Appointments</Link></li>
-                            <li><Link to='/records'>Records</Link></li>
+                            <li><Link to='/doctorRecords' state={props.userType}>Records</Link></li>
                            <li><Link to="/doctorprofile" state={{user:props}}>Profile</Link></li>
-
                             <li><Link to='/logout'>Logout</Link></li>
                           </ul>
                         </nav>
@@ -53,7 +52,7 @@ function Navbar(props) {
                           <ul>
                           <li><Link to="/patientDashboard" state={props.userType}>Appointments</Link></li>
                          <li><Link to="/doctorsList" state={{user:props.userType}}>Booking</Link></li>
-                         <li><Link to="/records">Records</Link></li>
+                         <li><Link to="/records"  state={props.userType}>Records</Link></li>
                          <li><Link to="/profile" state={{user:props}}>Profile</Link></li>
                          <li><Link to='/logout'>Logout</Link></li>
                           </ul>
