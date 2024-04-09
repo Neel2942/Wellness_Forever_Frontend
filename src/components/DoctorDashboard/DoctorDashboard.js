@@ -25,7 +25,7 @@ function DoctorDashboard() {
         if (result === "notLoggedIn") {
           setisLoggedIn(false);
         } else {
-          if (state !== userType) {
+          if (state.userType !== userType) {
             setisLoggedIn(false);
           }
         }

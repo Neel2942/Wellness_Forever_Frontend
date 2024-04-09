@@ -14,6 +14,8 @@ import Profile from './components/Profile/Profile';
 import CancelAppointmentList from './components/CancelAppointmentList/CancelAppointmentList';
 import AdminAppoitnmentList from './components/AdminAppoitnmentList/AdminAppoitnmentList';
 import Logout from './components/Logout/Logout';
+import DoctorProfile from './components/DoctorProfile/doctorprofile';
+
 function App() {
   
   return (
@@ -33,6 +35,7 @@ function App() {
           <Route path="/footer" element={<Footer/>}/>
           <Route path="/doctorsList" element={<DoctorsList/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/doctorprofile" element={<DoctorProfile/>}/>
           <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
           <Route path="/adminAppointmentsList" element={<AdminAppoitnmentList/>}/>
           <Route path="/logout" element={<Logout/>}/>

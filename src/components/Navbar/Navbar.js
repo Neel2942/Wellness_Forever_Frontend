@@ -28,7 +28,7 @@ function Navbar(props) {
           )
     }
 
-    else if(props.userType === 'doctor'){
+    else if(props.userType.userType === 'doctor'){
         return (
             <div>
                  <div id={styles.NavBar}>
@@ -36,6 +36,8 @@ function Navbar(props) {
                           <ul>
                             <li><Link to='/doctorDashboard' state={props.userType}>Appointments</Link></li>
                             <li><Link to='/records'>Records</Link></li>
+                           <li><Link to="/doctorprofile" state={{user:props}}>Profile</Link></li>
+
                             <li><Link to='/logout'>Logout</Link></li>
                           </ul>
                         </nav>

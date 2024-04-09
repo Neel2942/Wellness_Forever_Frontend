@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
-import styles from './Profile.module.css'; // Import CSS module
+import styles from './DoctorProfile.module.css'; // Import CSS module
 import Navbar from '../Navbar/Navbar';
 
-function ProfilePage() {
+function DoctorProfile() {
     const location = useLocation();
     const { user } = location.state;
     console.log(user);
@@ -39,7 +39,7 @@ function ProfilePage() {
 
             if (response.data === "Updated") {
                 console.log("User Updated");
-                // path("/patientDashboard",{state:user.userType});
+                path("/doctorDashboard",{state:user.userType});
 
             } else if (response.data === "Not Updated") {
                 console.log("User Not Updated");
@@ -98,4 +98,4 @@ function ProfilePage() {
     );
 }
 
-export default ProfilePage;
+export default DoctorProfile;
