@@ -36,22 +36,22 @@ const Login = () =>{
                 };
     
                 try{
-                    const response  = await axios.post("https://wellnessforever.onrender.com/login", userinfo);
+                    const response  = await axios.post("/login", userinfo);
                     if(response.data[0].userType === 'doctor'){
-                        path("https://wellnessforever.onrender.com/doctorDashboard",{state : response.data[0].userType})
+                        path("/doctorDashboard",{state : response.data[0].userType})
 
                     }else if(response.data[0].userType === 'patient'){
                         console.log(response.data[0]);
-                        path("https://wellnessforever.onrender.com/patientDashboard",{state : response.data[0]})
+                        path("/patientDashboard",{state : response.data[0]})
 
                     }else if(response.data[0].userType === 'admin'){
-                        path("https://wellnessforever.onrender.com/adminDashboard",{state : response.data[0].userType})
+                        path("/adminDashboard",{state : response.data[0].userType})
 
                     }else if (response.data === "incorrectPassword"){
                         console.log("Incorrect Password");
     
                     }else if (response.data === "notExists") {
-                        path("https://wellnessforever.onrender.com/login")
+                        path("/login")
                         console.log("User exists");
                     }
     
