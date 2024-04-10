@@ -7,11 +7,7 @@ function CancelFormDialogBox({ isOpen, handleClose, data }) {
     const { appointmentWith, date, time, symptoms, appointmentId,userType} = data;
     const [reason, setReason] = useState('');
     const [formErrors,setFormErrors] = useState({});
-    const path = useNavigate();
-    console.log("Data");
-    console.log(data);
    
-
     const validateForm = ()=> {
         const errors={};
 
@@ -34,10 +30,9 @@ function CancelFormDialogBox({ isOpen, handleClose, data }) {
             const response = await axios.post("/cancelAppointment", requestData);
     
             if (response.data === "Requested") {
-                console.log("Requested for cancelling appointment");
                 handleClose();
                 
-            } else if (response.data === "failed") {
+            } else if (response.data === "Failed") {
                 console.log("Failed");
             }
         } catch (error) {

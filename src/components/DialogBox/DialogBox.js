@@ -3,8 +3,6 @@ import styles from "./DialogBox.module.css";
 import axios from "axios";
 
 function DialogBox({ isOpen, handleClose, data ,userType}) {
-  console.log(data)
-  console.log(userType)
   const [medicines, setMedicines] = useState('');
   const [notes, setNotes] = useState('');
   const [formErrors,setFormErrors] = useState({})

@@ -45,7 +45,7 @@ function DoctorsList() {
         ) : (
           <div className="d-flex row-3">
             <Navbar user={state} />
-
+            
             <div className="d-flex flex-wrap flex-grow-1">
               {doctorsList.map((doctor) => (
                 <div class="m-4 h-30 w-25 ">
