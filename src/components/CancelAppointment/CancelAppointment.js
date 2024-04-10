@@ -7,15 +7,9 @@ function CancelAppointment() {
   const location = useLocation();
   const path = useNavigate();
   const { cancelId,cancelDetails } = location.state;
-  console.log(cancelId);
-  console.log(cancelDetails);
 
   const handleCancelRequest = async (e) => {
     e.preventDefault();
-    // Logic to handle cancellation request submission
-    console.log("Cancel request:", cancelDetails);
-    // Logic to handle cancellation request submission
-    console.log("Cancel request:", cancelDetails);
     let data={
       cancelAppointmentId:cancelId
     }
@@ -23,11 +17,14 @@ function CancelAppointment() {
       const response = await axios.post("/cancelRequest", data);
 
       if (response.data === "Cancelled") {
-          console.log("Appointment Cancelled");
           let obj={
             userType:'admin'
           }
           path("/adminDashboard",{state : obj.userType})
+      }else{
+        if(response.data === "notLoggedIn"){
+          path("/");
+        }
       }
   } catch (error) {
       console.error("Error:", error);

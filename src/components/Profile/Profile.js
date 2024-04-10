@@ -5,17 +5,15 @@ import styles from './Profile.module.css'; // Import CSS module
 import Navbar from '../Navbar/Navbar';
 
 function ProfilePage() {
-    const location = useLocation();
-    const { user } = location.state;
-    console.log(user);
+    const { state } = useLocation();
 
     const [editMode, setEditMode] = useState(false);
 
-    const [firstName, setFirstName] = useState(user.userType.firstName);
-    const [lastName, setLastName] = useState(user.userType.lastName);
-    const [email, setEmail] = useState(user.userType.email);
-    const [phoneNumber, setPhoneNumber] = useState(user.userType.phoneNumber);
-    const [age, setAge] = useState(user.userType.age);
+    const [firstName, setFirstName] = useState(state.firstName);
+    const [lastName, setLastName] = useState(state.lastName);
+    const [email, setEmail] = useState(state.email);
+    const [phoneNumber, setPhoneNumber] = useState(state.phoneNumber);
+    const [age, setAge] = useState(state.age);
 
     const path = useNavigate();
 
@@ -38,11 +36,13 @@ function ProfilePage() {
             const response = await axios.post("/updateuser", userData);
 
             if (response.data === "Updated") {
-                console.log("User Updated");
-                // path("/patientDashboard",{state:user.userType});
+                path("/patientDashboard",{state:state});
 
             } else if (response.data === "Not Updated") {
-                console.log("User Not Updated");
+                // Need to put some message to let user know there was some error in updating profile information.
+                path("/profile",{state:state});
+            }else if(response.data === "notLoggedIn"){
+                path("/");
             }
         } catch (error) {
             console.error("Error:", error);
@@ -52,7 +52,7 @@ function ProfilePage() {
 
     return (
         <div className={styles.Container}>
-            <Navbar userType={user.userType} />
+            <Navbar user={state} />
             <div className={styles.userInfoColumn}>
                 <div className={`card ${styles.card}`}>
                     <div className="card-body">
@@ -84,10 +84,10 @@ function ProfilePage() {
                             </form>
                         ) : (
                             <div>
-                                <p><strong>Name:</strong> {user.userType.firstName} {user.userType.lastName}</p>
-                                <p><strong>Email:</strong> {user.userType.email}</p>
-                                <p><strong>Phone Number:</strong> {user.userType.phoneNumber}</p>
-                                <p><strong>Age:</strong> {user.userType.age}</p>
+                                <p><strong>Name:</strong> {state.firstName} {state.lastName}</p>
+                                <p><strong>Email:</strong> {state.email}</p>
+                                <p><strong>Phone Number:</strong> {state.phoneNumber}</p>
+                                <p><strong>Age:</strong> {state.age}</p>
                                 <button type="button" className="btn btn-primary" onClick={toggleEditMode}>Edit Details</button>
                             </div>
                         )}

@@ -5,22 +5,22 @@ import styles from "./Navbar.module.css"
 function Navbar(props) {
     console.log("Navbar");
     console.log(props);
-    if(props.userType ==='admin'){
+    if(props.user.userType ==='admin'){
         return (
             <div>
                  <div id={styles.NavBar}>
                         <nav>
                           <ul>
                             <li>
-                              <Link to='/adminDashboard' state={props.userType}>List Of Users</Link>
+                              <Link to='/adminDashboard' state={props.user}>List Of Users</Link>
                             </li>
                             <li>
-                              <Link to='/adminAppointmentsList'  state={props.userType}>Appointments</Link>
+                              <Link to='/adminAppointmentsList' state={props.user}>Appointments</Link>
                             </li>
                             <li>
-                              <Link to='/cancelAppointmentList'>List of Cancel Requests</Link>
+                              <Link to='/cancelAppointmentList' state={props.user}>List of Cancel Requests</Link>
                             </li>
-                            <li><Link to='/logout'>Logout</Link></li>
+                            <li><Link to='/'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>
@@ -28,33 +28,33 @@ function Navbar(props) {
           )
     }
 
-    else if(props.userType.userType === 'doctor'){
+    else if(props.user.userType === 'doctor'){
         return (
             <div>
                  <div id={styles.NavBar}>
                         <nav>
                           <ul>
-                            <li><Link to='/doctorDashboard' state={props.userType}>Appointments</Link></li>
-                            <li><Link to='/doctorRecords' state={props.userType}>Records</Link></li>
-                           <li><Link to="/doctorprofile" state={{user:props}}>Profile</Link></li>
-                            <li><Link to='/logout'>Logout</Link></li>
+                            <li><Link to='/doctorDashboard' state={props.user}>Appointments</Link></li>
+                            <li><Link to='/doctorRecords' state={props.user}>Records</Link></li>
+                           <li><Link to="/doctorProfile" state={props.user}>Profile</Link></li>
+                            <li><Link to='/'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>
             </div>
           )
     }
-    else if(props.userType.userType === 'patient'){
+    else if(props.user.userType === 'patient'){
         return (
             <div>
                  <div id={styles.NavBar}>
                         <nav>
                           <ul>
-                          <li><Link to="/patientDashboard" state={props.userType}>Appointments</Link></li>
-                         <li><Link to="/doctorsList" state={{user:props.userType}}>Booking</Link></li>
-                         <li><Link to="/records"  state={props.userType}>Records</Link></li>
-                         <li><Link to="/profile" state={{user:props}}>Profile</Link></li>
-                         <li><Link to='/logout'>Logout</Link></li>
+                          <li><Link to="/patientDashboard" state={props.user}>Appointments</Link></li>
+                         <li><Link to="/doctorsList" state={props.user}>Booking</Link></li>
+                         <li><Link to="/records"  state={props.user}>Records</Link></li>
+                         <li><Link to="/profile" state={props.user}>Profile</Link></li>
+                         <li><Link to='/'>Logout</Link></li>
                           </ul>
                         </nav>
                       </div>

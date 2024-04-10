@@ -30,8 +30,6 @@ function DoctorDashboard() {
           }
         }
         setDoctorData(result);
-        console.log("Result");
-        console.log(result);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -66,7 +64,7 @@ function DoctorDashboard() {
           <div>
             <h2>Doctor Dashboard</h2>
             <div className={styles.doctorContainer}>
-              <Navbar userType={state} />
+              <Navbar user={state} />
               <div id={styles.doctorData}>
                 <table className={styles.doctor_custom_table}>
                   <thead>
@@ -112,7 +110,7 @@ function DoctorDashboard() {
       <React.Fragment>
         <div>
           <p>Please log in to access the doctor dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <Link to='/'>Login</Link>
         </div>
       </React.Fragment>
     );

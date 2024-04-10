@@ -4,9 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import DialogBox from "../DialogBox/DialogBox";
 import CancelFormDialogBox from '../CancelFormDialogBox/CancelFormDialogBox';
 
-
 function PatientDashboard() {
-
   const [patientData, setPatientData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn,setisLoggedIn] = useState(true);
@@ -14,8 +12,6 @@ function PatientDashboard() {
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
-  console.log("patientDashboard");
-  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,12 +60,10 @@ if(isLoggedIn){
        <p>Loading...</p>
      ) : (
        <div>
-    
-           
            <div className="d-grid gap-3 ">
            <div className='row g-3'>
            <div className="col-2">
-           <Navbar userType={state} />
+           <Navbar user={state} />
          </div>
                <div className="p-4 patient-bg rounded-right col"               >
                <h2 className='text-white text-center mb-3'>Patient Dashboard</h2>
@@ -119,7 +113,7 @@ else{
     <React.Fragment>
         <div>
         <p>Please log in to access the patient dashboard.</p>
-        <Link to="/login">Login</Link>
+        <Link to="/">Login</Link>
       </div>
     </React.Fragment>
   )

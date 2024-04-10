@@ -23,7 +23,7 @@ function AdminAppoitnmentList() {
         if (result === "notLoggedIn") {
           setisLoggedIn(false);
         } else {
-          if (state !== userType) {
+          if (state.userType !== userType) {
             setisLoggedIn(false);
           }
         }
@@ -55,7 +55,7 @@ function AdminAppoitnmentList() {
           <div>
             <h2>Admin Dashboard</h2>
             <div className={styles.doctorContainer}>
-              <Navbar userType={state} />
+              <Navbar user={state} />
               <div id={styles.doctorData}>
                 <table className={styles.doctor_custom_table}>
                   <thead>
@@ -81,7 +81,7 @@ function AdminAppoitnmentList() {
           </div>
         )}
         {openDialogIndex !== null && (
-          <DialogBox isOpen={true} handleClose={closeDialog} data={adminAppointmentList[openDialogIndex]} />
+          <DialogBox isOpen={true} handleClose={closeDialog} data={adminAppointmentList[openDialogIndex]}  />
         )}
       </React.Fragment>
     );
@@ -89,8 +89,8 @@ function AdminAppoitnmentList() {
     return (
       <React.Fragment>
         <div>
-          <p>Please log in to access the Admin dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <p>Please log in to access the Admin Appointment List.</p>
+          <Link to='/'>Login</Link>
         </div>
       </React.Fragment>
     );

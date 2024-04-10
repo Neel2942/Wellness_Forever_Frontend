@@ -6,8 +6,6 @@ import { Document, Page, Text, View, StyleSheet,pdf  } from '@react-pdf/renderer
 
 function Records() {
     const {state}=useLocation();
-    console.log("State");
-    console.log(state);
     const [patientRecordData, setPatientRecordData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isLoggedIn,setisLoggedIn] = useState(true);
@@ -95,7 +93,7 @@ function Records() {
                <div className="d-grid gap-3 ">
                <div className='row g-3'>
                <div className="col-2">
-               <Navbar userType={state} />
+               <Navbar user={state} />
              </div>
                    <div className="p-4 patient-bg rounded-right col"               >
                    <h2 className='text-white text-center mb-3'>Patient Records</h2>
@@ -134,8 +132,8 @@ function Records() {
       return(
         <React.Fragment>
             <div>
-            <p>Please log in to access the patient dashboard.</p>
-            <Link to="/login">Login</Link>
+            <p>Please log in to access the records.</p>
+            <Link to="/">Login</Link>
           </div>
         </React.Fragment>
       )

@@ -13,7 +13,6 @@ function BookingAppointment() {
     const{state}=useLocation();
     const [doctorName,setDoctorName] = useState(state.doctorName);
     const [doctorId,setDoctor] = useState(state.doctorId);
-    console.log(state);
 
     const validateForm = () => {
         const errors = {};
@@ -43,7 +42,6 @@ function BookingAppointment() {
     async function submit(e) {
         e.preventDefault();
         if(validateForm()){
-            console.log("All correct");
             const bookingAppointmentData = {
                 doctorId,
                 date,
@@ -55,8 +53,9 @@ function BookingAppointment() {
             try {
                 const response = await axios.post("/bookingAppointment", bookingAppointmentData);
                 if (response.data === "Booked") {
-                    console.log("Appointment Booked");
-                    path("/patientDashboard",{state:state.state});  
+                    path("/patientDashboard",{state:state});  
+                }else if(response.data === "notLoggedIn"){
+                    path("/");
                 }
             } catch (error) {
                 console.error("Error:", error);
@@ -66,9 +65,8 @@ function BookingAppointment() {
     }
 
     const handleCancel = () => {
-         path("/patientDashboard",{state:state.state}); // redirect to home page
+         path("/patientDashboard",{state:state}); // redirect to home page
     }
-
     return (
         <div >
             <h1>Book Appointment</h1>

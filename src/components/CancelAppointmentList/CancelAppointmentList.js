@@ -7,6 +7,7 @@ function CancelAppointmentList() {
     const [cancelList, setCancelList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
+  const { state } = useLocation();
   const path = useNavigate();
  
   useEffect(() => {
@@ -20,7 +21,6 @@ function CancelAppointmentList() {
         if (result === "notLoggedIn") {
           setisLoggedIn(false);
         }
-        console.log(result);
         setCancelList(result);
         setLoading(false);
       } catch (error) {
@@ -34,7 +34,6 @@ function CancelAppointmentList() {
 
   const handleViewCancelList = (cancelId, cancelDetails) => {
     // Handle booking logic here
-    console.log('Cancel Details:', cancelDetails);
     path("/cancelAppointment", { state: { cancelId: cancelId, cancelDetails: cancelDetails } });
   };
 
@@ -48,7 +47,7 @@ function CancelAppointmentList() {
           <div className="container-fluid ">
             <div className="row">
               <div className="col-2">
-                <Navbar userType="admin" />
+                <Navbar user={state} />
               </div>
               <div className="col">
                 {cancelList.map((list,index) => (
@@ -71,8 +70,8 @@ function CancelAppointmentList() {
     return (
       <React.Fragment>
         <div>
-          <p>Please log in to access the dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <p>Please log in to access the cancel appointment list.</p>
+          <Link to='/'>Login</Link>
         </div>
       </React.Fragment>
     );

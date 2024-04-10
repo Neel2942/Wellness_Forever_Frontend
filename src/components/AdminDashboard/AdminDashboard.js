@@ -9,7 +9,6 @@ function AdminDashboard() {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("admin");
   const {state}=useLocation();
-  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +44,7 @@ function AdminDashboard() {
           <div>
             <h2>Admin Dashboard</h2>
             <div className={styles.adminContainer}>
-              <Navbar userType={state}></Navbar>
+              <Navbar user={state}></Navbar>
               <div id={styles.adminData}>
                 <table className={styles.admin_custom_table}>
                   <thead>
@@ -85,7 +84,7 @@ function AdminDashboard() {
       <React.Fragment>
         <div>
           <p>Please log in to access the admin dashboard.</p>
-          <Link to='/login'>Login</Link>
+          <Link to='/'>Login</Link>
         </div>
       </React.Fragment>
     );

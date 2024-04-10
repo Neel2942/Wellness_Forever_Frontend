@@ -1,19 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import styles from "./DoctorsList.module.css";
 import Navbar from "../Navbar/Navbar";
-import Header from "../Header/Header";
 
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const path = useNavigate();
-  const location = useLocation();
-  const { user } = location.state;
-  console.log("DoctorList");
-  console.log(user);
+  const { state } = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,10 +32,8 @@ function DoctorsList() {
   }, []);
 
   const handleBookNow = (doctorId, doctorName) => {
-    // Handle booking logic here
-    console.log("Booking appointment with doctor ID:", doctorId);
     path("/bookingAppointment", {
-      state: { doctorId: doctorId, doctorName: doctorName, state: user },
+      state: { doctorId: doctorId, doctorName: doctorName, state: state },
     });
   };
 
@@ -51,7 +44,7 @@ function DoctorsList() {
           <p>Loading...</p>
         ) : (
           <div className="d-flex row-3">
-            <Navbar userType={user} />
+            <Navbar user={state} />
 
             <div className="d-flex flex-wrap flex-grow-1">
               {doctorsList.map((doctor) => (
@@ -85,8 +78,8 @@ function DoctorsList() {
     return (
       <React.Fragment>
         <div>
-          <p>Please log in to access the dashboard.</p>
-          <Link to="/login">Login</Link>
+          <p>Please log in to access the doctor list.</p>
+          <Link to="/">Login</Link>
         </div>
       </React.Fragment>
     );
