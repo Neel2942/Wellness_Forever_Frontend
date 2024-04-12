@@ -36,7 +36,7 @@ const Login = () =>{
     
                 try{
                     const response  = await axios.post("/login", userinfo);
-                    console.log(response);
+                    
                     if(response.data[0].userType === 'doctor'){
                         path("/doctorDashboard",{state : response.data[0]})
 

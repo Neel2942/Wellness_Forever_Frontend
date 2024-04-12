@@ -6,6 +6,7 @@ import Navbar from '../Navbar/Navbar';
 
 function DoctorProfile() {
     const { state } = useLocation();
+    console.log(state);
     const [editMode, setEditMode] = useState(false);
     const [firstName, setFirstName] = useState(state.firstName);
     const [lastName, setLastName] = useState(state.lastName);
@@ -33,13 +34,12 @@ function DoctorProfile() {
         try {
             const response = await axios.post("/updateuser", userData);
 
-            if (response.data === "Updated") {
-                console.log("User Updated");
-                path("/doctorDashboard",{state:state});
+            if (response.data.message === "Updated") {
+                path("/doctorDashboard",{state:response.data.updatedUser[0]});
 
             } else if (response.data === "Not Updated") {
                 // Need to put some message to let user know there was some error in updating profile information.
-                path("doctorProfile",{state:state});
+                path("/doctorProfile",{state:state});
             }else if(response.data === "notLoggedIn"){
                 path("/")
             }

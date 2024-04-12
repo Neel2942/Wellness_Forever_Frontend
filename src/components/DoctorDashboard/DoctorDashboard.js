@@ -12,6 +12,7 @@ function DoctorDashboard() {
   const [userType, setUserType] = useState("doctor");
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const { state } = useLocation();
+  console.log(state);
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
 
   useEffect(() => {

@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css"
 
 function Navbar(props) {
-    console.log("Navbar");
-    console.log(props);
     if(props.user.userType ==='admin'){
         return (
             <div>

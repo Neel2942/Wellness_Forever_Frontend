@@ -35,8 +35,8 @@ function ProfilePage() {
         try {
             const response = await axios.post("/updateuser", userData);
 
-            if (response.data === "Updated") {
-                path("/patientDashboard",{state:state});
+            if (response.data.message === "Updated") {
+                path("/patientDashboard",{state:response.data.updatedUser[0]});
 
             } else if (response.data === "Not Updated") {
                 // Need to put some message to let user know there was some error in updating profile information.
