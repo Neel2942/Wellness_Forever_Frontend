@@ -13,6 +13,22 @@ function PatientDashboard() {
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
 
+  const openDialog = (index) => {
+    setOpenDialogIndex(index);
+  };
+
+  const closeDialog = () => {
+    setOpenDialogIndex(null);
+  };
+
+  const openCancelFormDialog = (index) => {
+    setOpenCancelDialogIndex(index);
+  };
+
+  const closeCancelDialog = () => {
+    setOpenCancelDialogIndex(null);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,23 +52,9 @@ function PatientDashboard() {
       }
     };
     fetchData();
-  }, []);
+  }, [closeCancelDialog]);
 
-  const openDialog = (index) => {
-    setOpenDialogIndex(index);
-  };
 
-  const closeDialog = () => {
-    setOpenDialogIndex(null);
-  };
-
-  const openCancelFormDialog = (index) => {
-    setOpenCancelDialogIndex(index);
-  };
-
-  const closeCancelDialog = () => {
-    setOpenCancelDialogIndex(null);
-  };
 if(isLoggedIn){
   return (
     <React.Fragment>

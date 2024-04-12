@@ -12,8 +12,23 @@ function DoctorDashboard() {
   const [userType, setUserType] = useState("doctor");
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const { state } = useLocation();
-  console.log(state);
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
+
+  const openDialog = (index) => {
+    setOpenDialogIndex(index);
+  };
+
+  const closeDialog = () => {
+    setOpenDialogIndex(null);
+  };
+
+  const openCancelFormDialog = (index) => {
+    setOpenCancelDialogIndex(index);
+  };
+
+  const closeCancelDialog = () => {
+    setOpenCancelDialogIndex(null);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,23 +53,9 @@ function DoctorDashboard() {
       }
     };
     fetchData();
-  }, []);
+  },[closeCancelDialog]);
 
-  const openDialog = (index) => {
-    setOpenDialogIndex(index);
-  };
 
-  const closeDialog = () => {
-    setOpenDialogIndex(null);
-  };
-
-  const openCancelFormDialog = (index) => {
-    setOpenCancelDialogIndex(index);
-  };
-
-  const closeCancelDialog = () => {
-    setOpenCancelDialogIndex(null);
-  };
 
   if (isLoggedIn) {
     return (
