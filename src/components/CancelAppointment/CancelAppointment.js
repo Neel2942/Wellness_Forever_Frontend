@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CancelAppointment.module.css";
-import { Link, useNavigate, useLocation  } from "react-router-dom";
+import { useNavigate, useLocation  } from "react-router-dom";
 import axios from "axios";
 
 function CancelAppointment() {
@@ -20,7 +20,7 @@ function CancelAppointment() {
           let obj={
             userType:'admin'
           }
-          path("/adminDashboard",{state : obj.userType})
+          path("/adminDashboard",{state : obj})
       }else{
         if(response.data === "notLoggedIn"){
           path("/");

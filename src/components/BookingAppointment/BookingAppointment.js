@@ -53,7 +53,7 @@ function BookingAppointment() {
             try {
                 const response = await axios.post("/bookingAppointment", bookingAppointmentData);
                 if (response.data === "Booked") {
-                    path("/patientDashboard",{state:state});  
+                    path("/patientDashboard",{state:state.state});  
                 }else if(response.data === "notLoggedIn"){
                     path("/");
                 }

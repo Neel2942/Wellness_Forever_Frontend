@@ -52,7 +52,7 @@ function PatientDashboard() {
       }
     };
     fetchData();
-  }, [closeCancelDialog]);
+  }, [closeCancelDialog],[]);
 
 
 if(isLoggedIn){
@@ -89,7 +89,7 @@ if(isLoggedIn){
                            <td >{item.date}</td>
                            <td >{item.time}</td>
                            <td >{item.status}</td>
-                           <td ><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)}>Cancel</button></td>
+                           <td ><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)} disabled={state.userType === 'Requested'}>Cancel</button></td>
                            <td><button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button></td>
                          </tr>
                        ))}

@@ -9,6 +9,7 @@ function AdminDashboard() {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("admin");
   const {state}=useLocation();
+  console.log(state);
 
   useEffect(() => {
     const fetchData = async () => {
