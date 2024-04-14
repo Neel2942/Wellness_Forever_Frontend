@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import DialogBox from "../DialogBox/DialogBox";
 import styles from './AdminAppoitnmentList.module.css'
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
 
 function AdminAppoitnmentList() {
   const [adminAppointmentList, setAdminAppointmentList] = useState([]);
@@ -87,12 +88,7 @@ function AdminAppoitnmentList() {
     );
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the Admin Appointment List.</p>
-          <Link to='/'>Login</Link>
-        </div>
-      </React.Fragment>
+      <AuthLoginComponent user="Admin"></AuthLoginComponent>
     );
   }
 }

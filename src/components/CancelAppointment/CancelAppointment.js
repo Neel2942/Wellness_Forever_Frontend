@@ -34,8 +34,6 @@ function CancelAppointment() {
 
   return (
     <div className={styles.cancel_page_container}>
-      <h2>Admin</h2>
-
       <form onSubmit={handleCancelRequest} className={styles.cancel_request_form}>
       <h3 className={styles.cancel_heading}>Cancel Request Form</h3>
         <div className={styles.form_field}>
@@ -64,8 +62,6 @@ function CancelAppointment() {
           />
         </div>
         <div className={styles.button_group}>
-          
-          <button className={styles.reject_btn}>Reject Request</button>
           <button className={styles.accept_btn}>Accept Request</button>
         </div>
       </form>

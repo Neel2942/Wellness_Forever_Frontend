@@ -22,6 +22,7 @@ import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import AdminAppoitnmentList from './components/AdminAppoitnmentList/AdminAppoitnmentList';
 import CancelAppointment from './components/CancelAppointment/CancelAppointment';
 import CancelAppointmentList from './components/CancelAppointmentList/CancelAppointmentList';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
           <Route path="/adminAppointmentsList" element={<AdminAppoitnmentList/>}/>
           <Route path="/cancelAppointmentList" element={<CancelAppointmentList/>}/>
           <Route path="/cancelAppointment" element={<CancelAppointment/>}/>
+          <Route path="*" element={<PageNotFound/>}/>
         </Routes>
       </Router>
       <Footer />

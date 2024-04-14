@@ -3,7 +3,8 @@ import { Link,useLocation} from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import { saveAs } from 'file-saver';
 import { Document, Page, Text, View, StyleSheet,pdf  } from '@react-pdf/renderer';
-
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
+import customSTyles from './Records.module.css'
 function Records() {
     const {state}=useLocation();
     const [patientRecordData, setPatientRecordData] = useState([]);
@@ -97,6 +98,9 @@ function Records() {
              </div>
                    <div className="p-4 patient-bg rounded-right col"               >
                    <h2 className='text-white text-center mb-3'>Patient Records</h2>
+                   {patientRecordData.length == 0 ? (
+                            <h4 className={customSTyles.noAppoitnment}> No Records to display</h4>
+                     ) : (
                        <table className="table table-striped table-bordered">
                          <thead>
                            <tr>
@@ -119,6 +123,7 @@ function Records() {
                            ))}
                          </tbody>
                        </table>
+                     )}
                     </div>
                  </div>
                  </div>
@@ -130,12 +135,7 @@ function Records() {
     }
     else{
       return(
-        <React.Fragment>
-            <div>
-            <p>Please log in to access the records.</p>
-            <Link to="/">Login</Link>
-          </div>
-        </React.Fragment>
+        <AuthLoginComponent user="Patient"></AuthLoginComponent>
       )
      }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./AdminDashboard.module.css";
 import Navbar from "../Navbar/Navbar";
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
 
 function AdminDashboard() {
   const [adminData, setAdminData] = useState([]);
@@ -82,12 +83,7 @@ function AdminDashboard() {
     );
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the admin dashboard.</p>
-          <Link to='/'>Login</Link>
-        </div>
-      </React.Fragment>
+      <AuthLoginComponent user="Admin"></AuthLoginComponent>
     );
   }
 }

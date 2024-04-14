@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
 function DoctorsList() {
   const [doctorsList, setDoctorsList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -76,12 +76,7 @@ function DoctorsList() {
     );
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the doctor list.</p>
-          <Link to="/">Login</Link>
-        </div>
-      </React.Fragment>
+      <AuthLoginComponent user="Patient"></AuthLoginComponent>
     );
   }
 }

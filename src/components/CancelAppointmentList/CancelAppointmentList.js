@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react'
 import styles from './CancelAppointmentList.module.css'
 import Navbar from '../Navbar/Navbar';
 import { Link, useNavigate, useLocation  } from "react-router-dom";
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
 
 function CancelAppointmentList() {
     const [cancelList, setCancelList] = useState([]);
@@ -50,6 +51,10 @@ function CancelAppointmentList() {
                 <Navbar user={state} />
               </div>
               <div className="col">
+              {cancelList.length == 0 ? (
+                            <h4 className={styles.noAppoitnment}> No Cancel Lists to display</h4>
+                     ) : (
+                <div>
                 {cancelList.map((list,index) => (
                   <div key={list.cancelAppointmentId} className="col mb-4 ">
                     <div className={styles.doctor_card}>
@@ -60,6 +65,8 @@ function CancelAppointmentList() {
                     </div>
                   </div>
                 ))}
+                </div> )}
+                
               </div>
             </div>
             </div>
@@ -68,12 +75,7 @@ function CancelAppointmentList() {
     );
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the cancel appointment list.</p>
-          <Link to='/'>Login</Link>
-        </div>
-      </React.Fragment>
+      <AuthLoginComponent user="Admin"></AuthLoginComponent>
     );
   }
 }

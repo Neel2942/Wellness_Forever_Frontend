@@ -4,6 +4,7 @@ import styles from "./DoctorDashboard.module.css";
 import Navbar from "../Navbar/Navbar";
 import DialogBox from "../DialogBox/DialogBox";
 import CancelFormDialogBox from '../CancelFormDialogBox/CancelFormDialogBox';
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
 
 function DoctorDashboard() {
   const [doctorData, setDoctorData] = useState([]);
@@ -68,6 +69,9 @@ function DoctorDashboard() {
             <div className={styles.doctorContainer}>
               <Navbar user={state} />
               <div id={styles.doctorData}>
+              {doctorData.length == 0 ? (
+                            <h4 className={styles.noAppoitnment}> No Appointments to display</h4>
+                     ) : (
                 <table className={styles.doctor_custom_table}>
                   <thead>
                     <tr>
@@ -94,7 +98,7 @@ function DoctorDashboard() {
                       </tr>
                     ))}
                   </tbody>
-                </table>
+                </table>)}
               </div>
             </div>
           </div>
@@ -109,12 +113,7 @@ function DoctorDashboard() {
     );
   } else {
     return (
-      <React.Fragment>
-        <div>
-          <p>Please log in to access the doctor dashboard.</p>
-          <Link to='/'>Login</Link>
-        </div>
-      </React.Fragment>
+      <AuthLoginComponent user="Doctor"></AuthLoginComponent>
     );
   }
 }

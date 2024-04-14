@@ -1,9 +1,10 @@
 import React,  { useState, useEffect } from 'react';
-import { Link,useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import DialogBox from "../DialogBox/DialogBox";
 import CancelFormDialogBox from '../CancelFormDialogBox/CancelFormDialogBox';
-
+import AuthLoginComponent from '../AuthLoginComponent/AuthLoginComponent';
+import styles from './PatientDashboard.module.css'
 function PatientDashboard() {
   const [patientData, setPatientData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,9 @@ function PatientDashboard() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const result = await response.json();
-        if (result === "notLoggedIn") {
+        console.log(response)
+        console.log(result);
+        if (result === "notLoggedIn") {         
           setisLoggedIn(false);
         }else{
           if(state.userType !== userType){
@@ -69,6 +72,9 @@ if(isLoggedIn){
          </div>
                <div className="p-4 patient-bg rounded-right col"               >
                <h2 className='text-white text-center mb-3'>Patient Dashboard</h2>
+               {patientData.length == 0 ? (
+                            <h4 className= {styles.noAppoitnment}> No Appointment to display</h4>
+                     ) : (
                    <table className="table table-striped table-bordered">
                      <thead>
                        <tr>
@@ -81,7 +87,7 @@ if(isLoggedIn){
                          <th >Action</th>
                        </tr>
                      </thead>
-                     <tbody>
+                     <tbody>                  
                      {patientData.map((item,index) => (
                          <tr  key={item._id}>
                            <td >{item.no}</td>
@@ -95,6 +101,7 @@ if(isLoggedIn){
                        ))}
                      </tbody>
                    </table>
+                     )}
                 </div>
              </div>
              </div>
@@ -112,12 +119,7 @@ if(isLoggedIn){
 }
 else{
   return(
-    <React.Fragment>
-        <div>
-        <p>Please log in to access the patient dashboard.</p>
-        <Link to="/">Login</Link>
-      </div>
-    </React.Fragment>
+    <AuthLoginComponent user="Patient"></AuthLoginComponent>
   )
  }
 }

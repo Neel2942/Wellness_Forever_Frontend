@@ -93,7 +93,7 @@ function Signup() {
                     console.log("User exists");
                     
                 } else if (response.data === "notexists") {
-                    path("/login");
+                    path("/");
                 }
             } catch (error) {
                 console.error("Error:", error);
@@ -139,7 +139,7 @@ function Signup() {
             <br />
             <p>OR</p>
             <br />
-            <Link to="/login">Click Here to Login</Link>
+            <Link to="/">Click Here to Login</Link>
         </div>
     </>
 
