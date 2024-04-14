@@ -8,7 +8,7 @@ const Login = () =>{
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
     const [formErrors,setFormErrors] = useState({});
-
+    const backendUrl = process.env.API;
     const validateForm = ()=> {
         const errors={};
        
@@ -35,7 +35,7 @@ const Login = () =>{
                 };
     
                 try{
-                    const response  = await axios.post("/login", userinfo);
+                    const response  = await axios.post(`${backendUrl}/login`, userinfo);
                     
                     if(response.data[0].userType === 'doctor'){
                         path("/doctorDashboard",{state : response.data[0]})

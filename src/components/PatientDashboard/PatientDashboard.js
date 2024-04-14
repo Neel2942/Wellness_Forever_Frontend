@@ -13,6 +13,7 @@ function PatientDashboard() {
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
+  const backendUrl = process.env.API;
 
   const openDialog = (index) => {
     setOpenDialogIndex(index);
@@ -33,7 +34,7 @@ function PatientDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/patientDashboard');
+        const response = await fetch(`${backendUrl}/patientDashboard`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
