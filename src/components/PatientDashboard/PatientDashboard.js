@@ -14,6 +14,7 @@ function PatientDashboard() {
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
   const backendUrl = process.env.API;
+  console.log(backendUrl);
 
   const openDialog = (index) => {
     setOpenDialogIndex(index);
