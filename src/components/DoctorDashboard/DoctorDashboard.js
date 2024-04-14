@@ -88,7 +88,7 @@ function DoctorDashboard() {
                         <td className={styles.doctor_custom_data}>{item.date}</td>
                         <td className={styles.doctor_custom_data}>{item.time}</td>
                         <td className={styles.doctor_custom_data}>{item.status}</td>                       
-                        <td className={styles.doctor_custom_data}><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)}>Cancel</button></td>                        
+                        <td className={styles.doctor_custom_data}><button className='btn btn-danger' onClick={() => openCancelFormDialog(index)} disabled={item.status === 'Requested'}>Cancel</button></td>                        
                         <td className={styles.doctor_custom_data}><button className="btn btn-primary" onClick={() => openDialog(index)}>View Details</button>
                         </td>
                       </tr>
