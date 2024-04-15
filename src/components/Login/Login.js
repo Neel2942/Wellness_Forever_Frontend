@@ -10,7 +10,7 @@ const Login = () =>{
     const[password,setPassword] = useState('');
     const [formErrors,setFormErrors] = useState({});
     const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
-    console.log(process.env.BACKEND_API);
+    console.log(backendUrl);
     const validateForm = ()=> {
         const errors={};
        
