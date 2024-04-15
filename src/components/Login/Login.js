@@ -1,7 +1,9 @@
 import React,{useEffect,useState} from "react";
 import {useNavigate,Link} from "react-router-dom";
 import axios from "axios";
+import { dotenv } from 'dotenv';
 import styles from "./Login.module.css";
+dotenv.config();
 
 const Login = () =>{
     const path = useNavigate();
