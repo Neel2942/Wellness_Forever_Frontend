@@ -8,7 +8,7 @@ const Login = () =>{
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
     const [formErrors,setFormErrors] = useState({});
-    const backendUrl = process.env.API;
+    const backendUrl = process.env.BACKEND_API;
     console.log(backendUrl);
     const validateForm = ()=> {
         const errors={};
