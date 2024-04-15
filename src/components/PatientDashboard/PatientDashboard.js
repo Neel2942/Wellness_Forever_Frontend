@@ -35,7 +35,7 @@ function PatientDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${backendUrl}/patientDashboard`);
+        const response = await fetch(`/patientDashboard`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
