@@ -12,11 +12,12 @@ function AdminAppoitnmentList() {
   const [userType, setUserType] = useState("admin");
   const { state } = useLocation();
   const [openDialogIndex, setOpenDialogIndex] = useState(null);
+  const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/adminAppointmentList");
+        const response = await fetch(`${backendUrl}/adminAppointmentList`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }

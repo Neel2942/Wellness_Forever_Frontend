@@ -10,11 +10,12 @@ function CancelAppointmentList() {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const { state } = useLocation();
   const path = useNavigate();
+  const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/cancelAppoinmentList");
+        const response = await fetch(`${backendUrl}/cancelAppoinmentList`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }

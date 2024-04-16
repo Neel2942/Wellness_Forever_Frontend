@@ -13,6 +13,7 @@ function BookingAppointment() {
     const{state}=useLocation();
     const [doctorName,setDoctorName] = useState(state.doctorName);
     const [doctorId,setDoctor] = useState(state.doctorId);
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
     const validateForm = () => {
         const errors = {};
@@ -51,7 +52,7 @@ function BookingAppointment() {
             };
 
             try {
-                const response = await axios.post("/bookingAppointment", bookingAppointmentData);
+                const response = await axios.post(`${backendUrl}/bookingAppointment`, bookingAppointmentData);
                 if (response.data === "Booked") {
                     path("/patientDashboard",{state:state.state});  
                 }else if(response.data === "notLoggedIn"){

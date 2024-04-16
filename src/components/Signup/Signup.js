@@ -15,8 +15,8 @@ function Signup() {
     const [userType, setUserType] = useState('patient');
     const [specialization, setSpecialization] = useState('');
     const [description, setDescription] = useState('');
-
     const [formErrors,setFormErrors] = useState({});
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
     const validateForm = ()=> {
         const errors={};
@@ -87,7 +87,7 @@ function Signup() {
             };
         
             try {
-                const response = await axios.post("/signup", userData);
+                const response = await axios.post(`${backendUrl}/signup`, userData);
         
                 if (response.data === "exist") {
                     console.log("User exists");

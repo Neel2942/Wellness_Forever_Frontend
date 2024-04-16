@@ -14,8 +14,8 @@ function ProfilePage() {
     const [email, setEmail] = useState(state.email);
     const [phoneNumber, setPhoneNumber] = useState(state.phoneNumber);
     const [age, setAge] = useState(state.age);
-
     const path = useNavigate();
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
     const toggleEditMode = () => {
         setEditMode(prevMode => !prevMode);
@@ -33,7 +33,7 @@ function ProfilePage() {
         };
 
         try {
-            const response = await axios.post("/updateuser", userData);
+            const response = await axios.post(`${backendUrl}/updateuser`, userData);
 
             if (response.data.message === "Updated") {
                 path("/patientDashboard",{state:response.data.updatedUser[0]});

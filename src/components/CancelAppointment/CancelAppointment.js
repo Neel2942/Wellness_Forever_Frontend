@@ -7,6 +7,7 @@ function CancelAppointment() {
   const location = useLocation();
   const path = useNavigate();
   const { cancelId,cancelDetails } = location.state;
+  const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
   const handleCancelRequest = async (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ function CancelAppointment() {
       cancelAppointmentId:cancelId
     }
     try {
-      const response = await axios.post("/cancelRequest", data);
+      const response = await axios.post(`${backendUrl}/cancelRequest`, data);
 
       if (response.data === "Cancelled") {
           let obj={

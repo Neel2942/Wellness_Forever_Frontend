@@ -13,11 +13,12 @@ function DoctorsRecord() {
     const [isLoggedIn,setisLoggedIn] = useState(true);
     const [userTypeLog,setuserTypeLog] = useState("doctor");
     const {state}=useLocation();
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('/doctorRecords');
+            const response = await fetch(`${backendUrl}/doctorRecords`);
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
