@@ -7,6 +7,7 @@ function CancelFormDialogBox({ isOpen, handleClose, data }) {
     const { appointmentWith, date, time, symptoms, appointmentId,userType} = data;
     const [reason, setReason] = useState('');
     const [formErrors,setFormErrors] = useState({});
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
    
     const validateForm = ()=> {
         const errors={};
@@ -27,7 +28,7 @@ function CancelFormDialogBox({ isOpen, handleClose, data }) {
                 reason:reason,
             } 
         try {
-            const response = await axios.post("/cancelAppointment", requestData);
+            const response = await axios.post(`${backendUrl}}/cancelAppointment`, requestData);
     
             if (response.data === "Requested") {
                 handleClose();

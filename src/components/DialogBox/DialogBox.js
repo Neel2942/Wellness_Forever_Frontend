@@ -5,7 +5,8 @@ import axios from "axios";
 function DialogBox({ isOpen, handleClose, data ,userType}) {
   const [medicines, setMedicines] = useState('');
   const [notes, setNotes] = useState('');
-  const [formErrors,setFormErrors] = useState({})
+  const [formErrors,setFormErrors] = useState({});
+  const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
   const validateForm = ()=> {
     const errors={};
@@ -30,7 +31,7 @@ function DialogBox({ isOpen, handleClose, data ,userType}) {
             note:notes
         } 
     try {
-        const response = await axios.post("/doctorPrescription", requestData);
+        const response = await axios.post(`${backendUrl}/doctorPrescription`, requestData);
 
         if (response.data === "prescriptionAdded") {
             console.log("Prescription Added");
