@@ -9,8 +9,8 @@ const Login = () =>{
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
     const [formErrors,setFormErrors] = useState({});
-    const backendUrl = process.env.BACKEND_API;
-    console.log(process.env.BACKEND_API);
+    const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
+    console.log(backendUrl);
     const validateForm = ()=> {
         const errors={};
        
@@ -37,7 +37,7 @@ const Login = () =>{
                 };
     
                 try{
-                    const response  = await axios.post(`/login`, userinfo);
+                    const response  = await axios.post(`${backendUrl}/login`, userinfo);
                     
                     if(response.data[0].userType === 'doctor'){
                         path("/doctorDashboard",{state : response.data[0]})

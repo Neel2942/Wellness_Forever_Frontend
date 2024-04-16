@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "proxy": "https://wellnessforever.onrender.com",
   "private": true,
   "dependencies": {
     "@react-pdf/renderer": "^3.4.2",
