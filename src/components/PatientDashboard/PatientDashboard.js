@@ -14,7 +14,6 @@ function PatientDashboard() {
   const [openCancelDialogIndex, setOpenCancelDialogIndex] = useState(null);
   const {state}=useLocation();
   const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
-  console.log(backendUrl);
 
   const openDialog = (index) => {
     setOpenDialogIndex(index);
@@ -35,7 +34,7 @@ function PatientDashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/patientDashboard`);
+        const response = await fetch(`${backendUrl}/patientDashboard`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
