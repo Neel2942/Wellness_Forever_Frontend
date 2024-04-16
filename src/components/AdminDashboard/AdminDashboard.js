@@ -10,12 +10,12 @@ function AdminDashboard() {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [userType,setUserType] = useState("admin");
   const {state}=useLocation();
-  console.log(state);
+  const backendUrl = process.env.BACKEND_API || "https://wellnessforever.onrender.com";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/adminDashboard");
+        const response = await fetch(`${backendUrl}/adminDashboard`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
