@@ -28,7 +28,7 @@ function CancelFormDialogBox({ isOpen, handleClose, data }) {
                 reason:reason,
             } 
         try {
-            const response = await axios.post(`${backendUrl}}/cancelAppointment`, requestData);
+            const response = await axios.post(`${backendUrl}/cancelAppointment`, requestData);
     
             if (response.data === "Requested") {
                 handleClose();
