@@ -52,7 +52,7 @@ const Login = () =>{
                         console.log("Incorrect Password");
     
                     }else if (response.data === "notExists") {
-                        path("/login")
+                        path("/")
                         console.log("User exists");
                     }
     
