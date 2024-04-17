@@ -59,25 +59,29 @@ function AdminAppoitnmentList() {
             <div className={styles.doctorContainer}>
               <Navbar user={state} />
               <div id={styles.doctorData}>
-                <table className={styles.doctor_custom_table}>
-                  <thead>
-                    <tr>
-                      <th className={styles.custom_column}>Doctor Name:</th>
-                      <th className={styles.custom_column}>No. Of Appointments</th>
-                      <th className={styles.custom_column}>List of Patients</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {adminAppointmentList.map((item, index) => (
-                      <tr className={styles.doctor_custom_rows} key={item._id}>
-                        <td className={styles.doctor_custom_data}>{item.doctorName}</td>
-                        <td className={styles.doctor_custom_data}>{item.noOfAppointments}</td>
-                        <td className={styles.doctor_custom_data}><button className="btn btn-primary" onClick={() => openDialog(index)}>View Patient Details</button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              {adminAppointmentList.length == 0 ? (
+                            <h4 className={styles.noAppoitnment}> No Appointments to display</h4>
+                     ) : (                <table className={styles.doctor_custom_table}>
+                      <thead>
+                        <tr>
+                          <th className={styles.custom_column}>Doctor Name:</th>
+                          <th className={styles.custom_column}>No. Of Appointments</th>
+                          <th className={styles.custom_column}>List of Patients</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {adminAppointmentList.map((item, index) => (
+                          <tr className={styles.doctor_custom_rows} key={item._id}>
+                            <td className={styles.doctor_custom_data}>{item.doctorName}</td>
+                            <td className={styles.doctor_custom_data}>{item.noOfAppointments}</td>
+                            <td className={styles.doctor_custom_data}><button className="btn btn-primary" onClick={() => openDialog(index)}>View Patient Details</button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+
               </div>
             </div>
           </div>
