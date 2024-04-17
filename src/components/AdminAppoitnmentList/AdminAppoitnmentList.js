@@ -61,7 +61,8 @@ function AdminAppoitnmentList() {
               <div id={styles.doctorData}>
               {adminAppointmentList.length == 0 ? (
                             <h4 className={styles.noAppoitnment}> No Appointments to display</h4>
-                     ) : (                <table className={styles.doctor_custom_table}>
+                     ) : (                
+                     <table className={styles.doctor_custom_table}>
                       <thead>
                         <tr>
                           <th className={styles.custom_column}>Doctor Name:</th>
